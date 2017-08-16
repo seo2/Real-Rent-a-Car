@@ -1,0 +1,979 @@
+html {
+  width: 100%;
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body.sticky {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 90%;
+}
+
+@media only screen and (min-width: 601px) {
+  .container {
+    width: 85%;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .container {
+    width: 80%;
+  }
+}
+
+#portada {
+  padding-top: 60px;
+  margin-top: -60px;
+}
+
+.intro {
+  display: table;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  background: url(../img/banner1.jpg) no-repeat bottom center scroll;
+  background-color: transparent;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.intro-body {
+  display: table-cell;
+  vertical-align: top;
+}
+
+@media (min-width: 768px) {
+  .intro {
+    padding: 0;
+		height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro {
+    padding: 0;
+		height: auto;
+		min-height: 50%
+  }
+}
+
+/**/
+
+.icon-block {
+  padding: 0 15px;
+}
+
+.icon-block .material-icons {
+	font-size: inherit;
+	color: #000000;
+}
+
+a {
+	transition: all ease 0.25s;
+  -webkit-transition: all ease 0.25s;
+  -moz-transition: all ease 0.25s;
+}
+
+nav {
+	box-shadow: none;
+	background: #ffffff;
+	font-weight: 700;
+	color: #333333;
+	letter-spacing: 1px;
+	font-size: 12px;
+  height: 100px;
+  line-height: 100px;
+}
+
+@media only screen and (min-width: 1px) {
+  nav.nav-extended .nav-wrapper {
+    min-height: 100px;
+  }
+  nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    height: 100px;
+    line-height: 100px;
+  }
+  .navbar-fixed {
+    height: 100px;
+  }
+}
+
+nav ul a {
+	font-family: inherit;
+	font-weight: inherit;
+	color: inherit;
+	text-transform: uppercase;
+	font-size: inherit;
+} 
+
+nav ul a:hover, .side-nav li a:hover, nav ul a.selected, .side-nav li a.selected {
+	color: #f68935;
+	background: transparent;
+}
+
+.side-nav li a {
+	text-align: center;
+} 
+
+.brand-logo {
+	padding-top: 17px !important;
+}
+
+.fa-lg {
+  vertical-align: 0% !important;
+}
+
+.button-collapse {
+	color: #000000;
+}
+
+nav i,
+nav [class^="mdi-"], nav [class*="mdi-"],
+nav i.material-icons {
+  display: block;
+  font-size: 24px;
+  height: 100px;
+  line-height: 100px;
+}
+
+.brand-logo-mobile {
+	margin: 30px auto;
+	text-align: center;
+}
+
+.redes_sociales {
+	text-align: center;
+	margin-left: 30px;
+}
+
+.redes_sociales a {
+	display: inline-block;
+	margin: 0 !important;
+	padding: 0;
+}
+
+/**/
+
+.titulos {
+	font-weight: 900;
+	font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #454545;
+  text-align: center;
+}
+
+/*
+@media (max-width: 768px) {
+  .titulos {
+    font-size: 40px;
+  }
+}	
+*/
+
+.features {
+	margin-bottom: 10px !important;
+	text-align: center;
+	padding: 0 15px;
+}
+
+.features_icono {
+	font-size: 80px !important;
+	margin-bottom: 10px;
+	color: #454545;
+}
+
+.features_content {
+	font-size: 14px;
+  line-height: 16px;
+  color: #606060;
+	display: block;
+}
+
+.features_content h5 {
+	font-weight: 700;
+	margin-top: 10px;
+	font-size: 18px;
+}
+.features_content p {
+  font-size: 14px;
+	font-weight: 300;
+}
+
+/**/
+
+.home_titulo_a {
+	font-weight: 700;
+	color: #343233;
+	font-size: 30px;
+	text-align: left;
+	letter-spacing: 1px;
+	line-height: 30px;
+	margin: 30px 0 0;
+	text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.75);
+}
+
+.home_titulo_b {
+	font-weight: 700;
+	color: #343233;
+	font-size: 60px;
+	text-align: left;
+	letter-spacing: 1px;
+	line-height: 60px;
+	margin: 0;
+	text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.75);
+}
+
+.titulo {
+	font-weight: 700;
+	color: #343233;
+	font-size: 18px;
+	text-align: left;
+	margin: 30px 0;
+}
+
+.reserva_home {
+	background: #f68935;
+	width: 100%;
+	padding: 30px 30px 0px;
+	font-family: 'Lato', sans-serif;
+}
+
+.reserva_home h6 {
+	font-weight: 700;
+	text-align: left;
+	font-size: 16px;
+}
+
+.reserva_home ul {
+	font-weight: 700;
+	color: #ffffff;
+	font-size: 18px;
+}
+
+.reserva_home ul li {
+	display: inline-block;
+}
+
+.reserva_home ul li a {
+	color: inherit;
+	text-transform: uppercase;
+}
+
+.reserva_home ul li a:hover,
+.reserva_home ul li a.selected 
+{
+	color: #343233
+}
+
+/**/
+
+.no-mar-bot {
+	margin-bottom: 0;
+}
+
+/**/
+
+/* Text inputs */
+.reserva_home_form input:not([type]),
+.reserva_home_form input[type=text]:not(.browser-default) {
+  background-color: #ffffff;
+  border-bottom: 1px solid transparent;
+  -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+  color: #343233;
+  text-indent: 10px;
+}
+
+.reserva_home_form input:not([type]):disabled, input:not([type])[readonly="readonly"],
+.reserva_home_form input[type=text]:not(.browser-default):disabled,
+.reserva_home_form input[type=text]:not(.browser-default)[readonly="readonly"],
+.reserva_home_form input[type=password]:not(.browser-default):disabled,
+.reserva_home_form input[type=password]:not(.browser-default)[readonly="readonly"],
+.reserva_home_form input[type=email]:not(.browser-default):disabled,
+.reserva_home_form input[type=email]:not(.browser-default)[readonly="readonly"],
+.reserva_home_form input[type=url]:not(.browser-default):disabled,
+.reserva_home_form input[type=url]:not(.browser-default)[readonly="readonly"],
+.reserva_home_form input[type=time]:not(.browser-default):disabled,
+.reserva_home_form input[type=time]:not(.browser-default)[readonly="readonly"],
+.reserva_home_form input[type=date]:not(.browser-default):disabled,
+.reserva_home_form input[type=date]:not(.browser-default)[readonly="readonly"],
+.reserva_home_form input[type=datetime]:not(.browser-default):disabled,
+.reserva_home_form input[type=datetime]:not(.browser-default)[readonly="readonly"],
+.reserva_home_form input[type=datetime-local]:not(.browser-default):disabled,
+.reserva_home_form input[type=datetime-local]:not(.browser-default)[readonly="readonly"],
+.reserva_home_form input[type=tel]:not(.browser-default):disabled,
+.reserva_home_form input[type=tel]:not(.browser-default)[readonly="readonly"],
+.reserva_home_form input[type=number]:not(.browser-default):disabled,
+.reserva_home_form input[type=number]:not(.browser-default)[readonly="readonly"],
+.reserva_home_form input[type=search]:not(.browser-default):disabled,
+.reserva_home_form input[type=search]:not(.browser-default)[readonly="readonly"],
+.reserva_home_form textarea.materialize-textarea:disabled,
+.reserva_home_form textarea.materialize-textarea[readonly="readonly"] {
+  color: rgba(0, 0, 0, 0.42);
+  border-bottom: 1px dotted transparent;
+}
+
+.reserva_home_form input:not([type]):focus:not([readonly]),
+.reserva_home_form input[type=text]:not(.browser-default):focus:not([readonly]),
+.reserva_home_form input[type=password]:not(.browser-default):focus:not([readonly]),
+.reserva_home_form input[type=email]:not(.browser-default):focus:not([readonly]),
+.reserva_home_form input[type=url]:not(.browser-default):focus:not([readonly]),
+.reserva_home_form input[type=time]:not(.browser-default):focus:not([readonly]),
+.reserva_home_form input[type=date]:not(.browser-default):focus:not([readonly]),
+.reserva_home_form input[type=datetime]:not(.browser-default):focus:not([readonly]),
+.reserva_home_form input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+.reserva_home_form input[type=tel]:not(.browser-default):focus:not([readonly]),
+.reserva_home_form input[type=number]:not(.browser-default):focus:not([readonly]),
+.reserva_home_form input[type=search]:not(.browser-default):focus:not([readonly]),
+.reserva_home_form textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid transparent;
+  -webkit-box-shadow: 0 0px 0 0 transparent;
+          box-shadow: 0 0px 0 0 transparent;
+}
+
+/* Validation Sass Placeholders */
+.reserva_home_form input.valid:not([type]), input.valid:not([type]):focus,
+.reserva_home_form input[type=text].valid:not(.browser-default),
+.reserva_home_form input[type=text].valid:not(.browser-default):focus,
+.reserva_home_form input[type=password].valid:not(.browser-default),
+.reserva_home_form input[type=password].valid:not(.browser-default):focus,
+.reserva_home_form input[type=email].valid:not(.browser-default),
+.reserva_home_form input[type=email].valid:not(.browser-default):focus,
+.reserva_home_form input[type=url].valid:not(.browser-default),
+.reserva_home_form input[type=url].valid:not(.browser-default):focus,
+.reserva_home_form input[type=time].valid:not(.browser-default),
+.reserva_home_form input[type=time].valid:not(.browser-default):focus,
+.reserva_home_form input[type=date].valid:not(.browser-default),
+.reserva_home_form input[type=date].valid:not(.browser-default):focus,
+.reserva_home_form input[type=datetime].valid:not(.browser-default),
+.reserva_home_form input[type=datetime].valid:not(.browser-default):focus,
+.reserva_home_form input[type=datetime-local].valid:not(.browser-default),
+.reserva_home_form input[type=datetime-local].valid:not(.browser-default):focus,
+.reserva_home_form input[type=tel].valid:not(.browser-default),
+.reserva_home_form input[type=tel].valid:not(.browser-default):focus,
+.reserva_home_form input[type=number].valid:not(.browser-default),
+.reserva_home_form input[type=number].valid:not(.browser-default):focus,
+.reserva_home_form input[type=search].valid:not(.browser-default),
+.reserva_home_form input[type=search].valid:not(.browser-default):focus,
+.reserva_home_form textarea.materialize-textarea.valid,
+.reserva_home_form textarea.materialize-textarea.valid:focus, .select-wrapper.valid > input.select-dropdown {
+  border-bottom: 1px solid transparent;
+  -webkit-box-shadow: 0 0px 0 0 transparent;
+          box-shadow: 0 0px 0 0 transparent;
+}
+
+.reserva_home_form input:not([type]):focus:not([readonly]) + label,
+.reserva_home_form input[type=text]:not(.browser-default):focus:not([readonly]) + label,
+.reserva_home_form input[type=password]:not(.browser-default):focus:not([readonly]) + label,
+.reserva_home_form input[type=email]:not(.browser-default):focus:not([readonly]) + label,
+.reserva_home_form input[type=url]:not(.browser-default):focus:not([readonly]) + label,
+.reserva_home_form input[type=time]:not(.browser-default):focus:not([readonly]) + label,
+.reserva_home_form input[type=date]:not(.browser-default):focus:not([readonly]) + label,
+.reserva_home_form input[type=datetime]:not(.browser-default):focus:not([readonly]) + label,
+.reserva_home_form input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label,
+.reserva_home_form input[type=tel]:not(.browser-default):focus:not([readonly]) + label,
+.reserva_home_form input[type=number]:not(.browser-default):focus:not([readonly]) + label,
+.reserva_home_form input[type=search]:not(.browser-default):focus:not([readonly]) + label,
+.reserva_home_form textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #ffffff;
+}
+
+.reserva_home_form .input-field {
+  position: relative;
+  margin-top: 1rem;
+}
+
+.reserva_home_form .input-field.inline {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.reserva_home_form .input-field.inline input,
+.reserva_home_form .input-field.inline .select-dropdown {
+  margin-bottom: 1rem;
+}
+
+.reserva_home_form .input-field.col label {
+  left: 0.75rem;
+  font-size: 14px;
+}
+
+.reserva_home_form .input-field label {
+  color: #ffffff;
+  position: absolute;
+  top: -10px;
+  left: 0;
+  height: 100%;
+  font-size: 1rem;
+  cursor: text;
+  -webkit-transition: -webkit-transform .2s ease-out;
+  transition: -webkit-transform .2s ease-out;
+  transition: transform .2s ease-out;
+  transition: transform .2s ease-out, -webkit-transform .2s ease-out;
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+  text-align: initial;
+  -webkit-transform: translateY(12px);
+          transform: translateY(12px);
+  pointer-events: none;
+}
+
+.reserva_home_form .input-field label:not(.label-icon).active {
+  -webkit-transform: translateY(-14px) scale(0.8);
+          transform: translateY(-14px) scale(0.8);
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+}
+
+.reserva_home_form .input-field .prefix {
+  position: absolute;
+  width: 3rem;
+  font-size: 2rem;
+  -webkit-transition: color .2s;
+  transition: color .2s;
+}
+
+.reserva_home_form .input-field .prefix.active {
+  c/* olor: #26a69a; */
+  color: #ffffff !important;
+}
+
+.btn:focus, .btn-large:focus,
+.btn-floating:focus {
+  background-color: #1d7d74;
+}
+
+.btn {
+  text-decoration: none;
+  color: #fff;
+  background-color: #343233;
+  text-align: center;
+  letter-spacing: .5px;
+  -webkit-transition: .2s ease-out;
+  transition: .2s ease-out;
+  cursor: pointer;
+  border: solid 1px #343233;
+  font-weight: 700;
+  -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	box-shadow: none !important;
+	outline: none;
+}
+
+.btn:hover {
+  background: #ffffff;
+  color: #909090;
+  border: solid 1px #909090;
+}
+
+
+.reserva_home_form label {
+  color: #ffffff;
+	font-family: 'Lato', sans-serif;
+}
+
+.reserva_home_form [type="checkbox"] + label:before,
+.reserva_home_form [type="checkbox"]:not(.filled-in) + label:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  z-index: 0;
+  border: 2px solid #ffffff;
+  border-radius: 1px;
+  margin-top: 2px;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.reserva_home_form [type="checkbox"]:checked + label:before {
+  top: -4px;
+  left: -5px;
+  width: 12px;
+  height: 22px;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;	
+}
+
+/**//**//**//**//**//**//**/
+
+.reserva_home_form .qwerty [type="checkbox"] + label:before,
+.reserva_home_form .qwerty [type="checkbox"]:not(.filled-in) + label:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  z-index: 0;
+  border: 2px solid #757575;
+  border-radius: 1px;
+  margin-top: 2px;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.reserva_home_form .qwerty [type="checkbox"]:checked + label:before {
+  top: -4px;
+  left: -5px;
+  width: 12px;
+  height: 22px;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid #757575;
+  border-bottom: 2px solid #757575;
+  -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;	
+}
+
+/**//**//**//**//**//**//**/
+
+.owl-prev:before {
+  font-family: 'FontAwesome';
+	content: '\f104';
+	font-size: 50px;
+	line-height: 36px;
+	position: absolute;
+	top: calc(80% - 20px);
+	left: -20px;
+	display: block;
+	text-align: center;
+  color: black;
+}
+
+.owl-next:before {
+  font-family: 'FontAwesome';
+	content: '\f105';
+	font-size: 50px;
+	line-height: 36px;
+	position: absolute;
+	top: calc(80% - 20px);
+	right: -20px;
+	display: block;
+	text-align: center;
+  color: black;
+}
+
+@media only screen and (max-width: 768px) {
+  .owl-prev:before {
+    left: 15px;
+    font-size: 40px;
+    line-height: 24px;
+  }
+  
+  .owl-next:before {
+    right: 15px;
+    font-size: 40px;
+    line-height: 24px;
+  }
+}
+
+/**/
+
+.item h5, .box_info h5 {
+	font-weight: 700;
+	font-size: 18px;
+	color: #909090;
+	margin: 5px 0;
+}
+
+.item p, .box_info p {
+	font-weight: 700;
+	font-size: 14px;
+	color: #343234;
+	margin: 5px 0;
+}
+
+.item .btn_orange {
+	margin: 10px auto;
+}
+
+.btn_orange {
+	background: #f68935;
+	width: 120px;
+	height: 30px;
+	display: block;
+	color: #ffffff;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 28px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: solid 1px #f68935;
+}
+
+.btn_orange:hover {
+	background: #ffffff;
+	color: #909090;
+	border: solid 1px #909090;
+}
+
+.btn_red {
+	background: #ed1c24;
+	width: 120px;
+	height: 30px;
+	display: block;
+	color: #ffffff;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 28px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: solid 1px #f68935;
+}
+
+.btn_red:hover {
+	background: #ffffff;
+	color: #909090;
+	border: solid 1px #909090;
+}
+
+.btn_white {
+	background: #ffffff;
+	width: 120px;
+	height: 30px;
+	display: block;
+	color: #909090;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 28px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: solid 1px #909090;
+}
+
+.btn_white:hover {
+	background: #f0f0f0;
+	color: #909090;
+	border: solid 1px #909090;
+}
+
+.vehiculo {
+	border: solid 1px #e5e2e2;
+	margin-bottom: 15px;
+}
+
+/**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**/
+
+footer {
+	background: #f68935;
+	padding-top: 30px;
+}
+
+footer .content {
+	color: #ffffff;
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: 300;
+	text-align: center;
+	padding: 0 30px !important;
+	margin-bottom: 30px;
+}
+
+footer .content span {
+	font-weight: 700;
+}
+
+/**/
+
+.barra_naranja {
+	background: #f68935;
+	width: 100%;
+	height: 100px;
+}
+
+.barra_naranja h4 {
+	font-weight: 900;
+	font-size: 24px;
+	line-height: 100px;
+	text-align: left;
+	margin: 0;
+	color: #ffffff;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+/**/
+
+ul.modelos_autos {
+	height: 35px;
+}
+
+ul.modelos_autos li {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 35px;
+	color: #909090;
+	display: inline-block;
+}
+
+ul.modelos_autos li a {
+	color: inherit;
+	text-decoration: underline;
+}
+
+ul.modelos_autos li a:hover, ul.modelos_autos li a.selected {
+	color: #343233;
+}
+
+.box_cars {
+	background: #f0f0f0;
+	padding: 15px;
+	margin-bottom: 15px;
+	width: 100%;
+}
+
+.box_grey {
+	background: #909090;
+	width: 100%;
+	height: 35px;
+	padding: 0 15px;
+	display: block;
+	margin-bottom: 15px;
+}
+
+.box_grey p {
+	color: #ffffff;
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 35px;
+	margin: 0;
+}
+
+.box_red {
+	background: #ed1c24;
+	width: 100%;
+	height: 35px;
+	padding: 0 15px;
+	display: block;
+}
+
+.box_red p {
+	color: #ffffff;
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 35px;
+	margin: 0;
+}
+
+.box_car {
+	background: #ffffff;
+	margin-top: 15px;
+	width: 100%;
+}
+
+.box_car .row {
+	margin-bottom: 0;
+}
+
+.box_car img {
+	margin-top: 15px;
+}
+
+.box_info {
+	padding: 0 15px;
+	margin: 15px 0;
+}
+
+.features_car {
+	font-weight: 700;
+	color: #c2c2c2;
+}
+
+.box_orange {
+	background: #f68935;
+	width: 100%;
+	height: 35px;
+	padding: 0 15px;
+	display: block;
+	margin-bottom: 15px;
+}
+
+.box_orange	 p {
+	color: #ffffff;
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 35px;
+	margin: 0;
+}
+
+.box_side {
+	border: solid 1px #e5e2e2;
+	padding: 15px;
+}
+
+.dato_reserva {
+	font-size: 14px;
+	font-weight: 400;
+	color: #343233;
+	margin: 15px 0;
+}
+
+.dato_reserva p {
+	display: block;
+	margin: 0;
+}
+
+.dato_reserva span {
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.dato_reserva a {
+	font-size: 14px;
+	font-weight: 700;
+	color: inherit;
+	margin-left: 15px;
+}
+
+.dato_reserva a:hover {
+	color: #f68935;
+	text-decoration: underline;
+}
+
+
+/**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**/
+
+.faqs .collapsible {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: none;
+  margin: 0 12px;
+}
+
+.faqs .collapsible-header {
+  display: block;
+  cursor: pointer;
+  min-height: 1rem;
+  line-height: 3rem;
+  padding: 0 10 0 20px;
+  background-color: #f68935;
+  border-bottom: none;
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-weight: 400;
+	font-size: 14px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+@media only screen and (max-width: 600px) {
+	.faqs .collapsible-header {
+		font-size: 14px;
+		letter-spacing: 0px;
+		padding: 0 10px;
+	}
+}
+
+.faqs .collapsible-header:hover, .faqs .collapsible-header:focus, .faqs .collapsible-header.active {
+  background: #dc7222;
+}
+
+.faqs .collapsible-header i {
+  width: none;
+  font-size: 24px;
+  line-height: 42px;
+  display: block;
+  float: none;
+  text-align: center;
+  margin-right: 0;
+}
+
+.faqs .collapsible-body {
+  display: none;
+  border-bottom: none;
+  box-sizing: border-box;
+}
+
+.faqs .collapsible-body p {
+  margin: 0 0 10px;
+  padding: 10px;
+}
+
+.faqs .texto {
+	font-weight: 300;
+	font-size: 14px;
+	display: block;
+	color: #606060;
+}
+
+/**//**//**//**//**//**//**//**//**//**//**//**//**//**//**/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
