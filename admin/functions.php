@@ -153,14 +153,28 @@
 		return $ok;
 	
 	}
-	
-	
-	function get_evento($eveID){
+
+	function get_segmento_cat($catID){
 		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from eventos where eveID = '.$eveID);
+		$tema = $db->rawQuery('select * from autos_categorias where catID = '.$catID);
 		if($tema){
 			foreach ($tema as $t) {
-				$eveNombre  = $t["eveNombre"];
+				$eveNombre  = $t["segID"];
+			}
+		}else{
+			$eveNombre = 'Error';
+		}
+
+		return $eveNombre;
+	}
+	
+	
+	function get_segmento($eveID){
+		$db = MysqliDb::getInstance();
+		$tema = $db->rawQuery('select * from autos_segmentos where segID = '.$eveID);
+		if($tema){
+			foreach ($tema as $t) {
+				$eveNombre  = $t["segNom"];
 			}
 		}else{
 			$eveNombre = 'Error';
@@ -170,96 +184,6 @@
 		
 	}
 	
-	function get_tienda($eveID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from tiendas where tieID = '.$eveID);
-		if($tema){
-			foreach ($tema as $t) {
-				$eveNombre  = $t["tieNom"];
-			}
-		}else{
-			$eveNombre = 'Error';
-		}
-
-		return $eveNombre;
-		
-	}
-
-
-	function get_pieza_desc($ID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from piezas where pieID = '.$ID);
-		if($tema){
-			foreach ($tema as $t) {
-				$eveNombre  = $t["pieDesc"];
-			}
-		}else{
-			$eveNombre = 'Error';
-		}
-
-		return $eveNombre;
-	}
-
-
-	function get_instore_desc($formID, $ID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from instores where formID = '.$formID.' and insID = '.$ID);
-		if($tema){
-			foreach ($tema as $t) {
-				$eveNombre  = $t["insNomGes"];
-			}
-		}else{
-			$eveNombre = 'Error';
-		}
-
-		return $eveNombre;
-	}
-
-
-	function get_instore_gen($formID, $ID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from instores where formID = '.$formID.' and insID = '.$ID);
-		if($tema){
-			foreach ($tema as $t) {
-				$eveNombre  = $t["insNomGen"];
-			}
-		}else{
-			$eveNombre = 'Error';
-		}
-
-		return $eveNombre;
-	}
-
-
-	function get_instore_desc_v2($formID, $ID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from instores_v2 where formID = '.$formID.' and insID = '.$ID);
-		if($tema){
-			foreach ($tema as $t) {
-				$eveNombre  = $t["insNomGes"];
-			}
-		}else{
-			$eveNombre = 'Error';
-		}
-
-		return $eveNombre;
-	}
-
-
-	function get_instore_gen_v2($formID, $ID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from instores_v2 where formID = '.$formID.' and insID = '.$ID);
-		if($tema){
-			foreach ($tema as $t) {
-				$eveNombre  = $t["insNomGen"];
-			}
-		}else{
-			$eveNombre = 'Error';
-		}
-
-		return $eveNombre;
-	}
-
 
 	function get_pieza_entrega($ID){
 		$db = MysqliDb::getInstance();
@@ -290,148 +214,14 @@
 		return $eveNombre;
 	}
 	
-	function get_votoTipo($posID, $usuID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery("select * from votosUsuario where posID = $posID and usuID = $usuID");
-		if($tema){
-			foreach ($tema as $t) {
-				$votoTipo  = $t["votoTipo"];
-			}
-		}else{
-			$votoTipo = 0;
-		}
-
-		return $votoTipo;
-		
-	}
-	function get_votoAct($posID, $usuID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery("select * from votosUsuario where posID = $posID and usuID = $usuID");
-		if($tema){
-			foreach ($tema as $t) {
-				$votoTipo  = $t["votoAct"];
-			}
-		}else{
-			$votoTipo = 0;
-		}
-
-		return $votoTipo;
-		
-	}
-
-
-	function get_mitema($temaID, $usuID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery("select * from usutemas where usuID = $usuID and temaID = $temaID");
-		if($tema){
-			foreach ($tema as $t) {
-				$ok = 1;			
-			}
-		}else{
-				$ok = 0;
-		}
-
-		return $ok;
-		
-	}
-
-	function get_votos($posID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery("select count(*) as total from votosUsuario where posID = $posID");
-		if($tema){
-			foreach ($tema as $t) {
-				$votos  = $t["total"];			
-			}
-		}else{
-				$votos = 0;
-		}
-
-		return $votos;
-		
-	}
-
+	
 	function get_regiones(){
 		$db = MysqliDb::getInstance();
 		$regiones = $db->rawQuery("SELECT region_id, region_nombre from region");
 		return($regiones);    
 	}
 
-	function get_total_argumentos($posID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery("select count(*) as total from argumenos where posID = $posID and argEst = 0");
-		if($tema){
-			foreach ($tema as $t) {
-				$votos  = $t["total"];			
-			}
-		}else{
-				$votos = 0;
-		}
 
-		return $votos;
-		
-	}
-
-	function get_voto_argumentos($posID,$argID,$usuID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery("select count(*) as total from votosUsuArg where posID = $posID and argID = $argID and usuID = $usuID and votoEst = 1");
-		if($tema){
-			foreach ($tema as $t) {
-				$votos  = $t["total"];			
-			}
-		}else{
-				$votos = 0;
-		}
-
-		return $votos;
-		
-	}
-
-	function get_votos_argumentos($posID,$argID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery("select count(*) as total from votosUsuArg where posID = $posID and argID = $argID and votoEst = 1");
-		if($tema){
-			foreach ($tema as $t) {
-				$votos  = $t["total"];			
-			}
-		}else{
-				$votos = 0;
-		}
-
-		return $votos;
-		
-	}
-
-	function get_similitud($miID,$suID){
-		$db = MysqliDb::getInstance();
-		$votos = $db->rawQuery("select * from votosUsuario where usuID = $miID");
-		$totalPos 		= 0;
-		$totalIguales 	= 0;
-		if($votos){
-			foreach ($votos as $v) {
-						
-				$miVotoTipo  = $v["votoTipo"];
-		
-				$suVotoTipo = get_votoTipo($v['posID'], $suID);
-				if($suVotoTipo>0){
-					$totalPos++;
-					if($suVotoTipo==$miVotoTipo){
-						$totalIguales++;
-					}
-				}
-				
-				//$votos  = $t["total"];			
-			}
-		}else{
-				$porcentaje = 0;
-		}
-		if($totalPos>0){
-			$porcentaje = (100*$totalIguales)/$totalPos;
-		}else{
-			$porcentaje = 0;
-		}
-		return round($porcentaje,1);
-		
-	}
 
 
 	function get_items_tienda($tiendaID,$eveID){
@@ -1509,21 +1299,6 @@ function get_zona($clID){
     	return $colA;
 	}
 
-function quitatodo2($string){
-    	$colA = str_replace(' ', '_', $string);
-    	$colA = str_replace('/', '', $colA);
-    	$colA = str_replace(')', '', $colA);
-    	$colA = str_replace('(', '', $colA);
-    	$colA = str_replace('&ntilde;', 'n', $colA);
-    	$colA = str_replace('&ouml;', 'o', $colA);
-    	$colA = str_replace('ö', 'o', $colA);
-    	$colA = str_replace('ñ', 'n', $colA);
-    	$colA = str_replace('%', 'porc', $colA);
-    	$colA = str_replace('&', 'porc', $colA);
-    	$colA = str_replace('generico', '', $colA);
-    	$colA = strtolower($colA);
-    	return $colA;
-	}
 	
 
 	function get_rate_exchange($paisID,$ano){

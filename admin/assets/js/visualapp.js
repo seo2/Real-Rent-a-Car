@@ -372,10 +372,6 @@ $('a#logoutBtn').on('click', function() {
 var insID = 0;
 
 
-
-
-
-
 $("#tipoPedido").bind("change", function() {
 	tipoPedido = $(this).val();
 	if(tipoPedido==1){
@@ -930,250 +926,7 @@ $('#agrega-pedido_v2')
 
 ////
 
-$('#formCampana')
-        .formValidation({
-            icon: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
-            },
-			locale: 'es_ES'
-        })
-        .on('success.form.fv', function(e) {
-            e.preventDefault();
-
-            var $form = $(e.target),
-                fv    = $(e.target).data('formValidation');
-			
-			$('#btngrabar').html('Grabando <i class="fa fa fa-spinner fa-spin"></i>');
-
-			$.ajax({
-                type: 'POST',
-                url: $form.attr('action'),
-	            data: $form.serialize(),
-            })
-            .done(function( data, textStatus, jqXHR ) {
-			     if ( console && console.log ) {
-			        console.log(data);
-
-			         if(data=='2'){
-					 	 swal({   title: "¡Excelente!",   text: "Se ha modificado la campaña.",   type: "success",     confirmButtonColor: "#DD6B55",   confirmButtonText: "Ok",   cancelButtonText: "Salir",  showCancelButton: false,   closeOnConfirm: false,   closeOnCancel: false , allowOutsideClick: true}, 
-		            	function(isConfirm){   
-			            	if (isConfirm) {  
-			            		javascript:window.history.back();  
-				            } else{  
-			            		javascript:window.history.back();   
-		            		} 
-		            	});
-					}else{
-					 	 swal({   title: "¡Excelente!",   text: data,   type: "success",     confirmButtonColor: "#DD6B55",   confirmButtonText: "Agregar otra",   cancelButtonText: "Salir",  showCancelButton: true,   closeOnConfirm: false,   closeOnCancel: false , allowOutsideClick: true}, 
-		            	function(isConfirm){   
-			            	if (isConfirm) {  
-			            		location.reload();
-			            	}else{
-			            		javascript:window.history.back();   
-			            	}
-		            	});
-						
-					}
-                    $('#btngrabar').html('<i class="fa fa-floppy-o"></i> Grabar');
-				
-				}	
-					
-			})
-			.fail(function( jqXHR, textStatus, errorThrown ) {
-			     if ( console && console.log ) {
-	                    alert('Ha ocurrido un error. ' +textStatus);
-			     }
-			});
-
-        });  
-
-$('#formProveedor')
-        .formValidation({
-            icon: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
-            },
-			locale: 'es_ES'
-        })
-        .on('success.form.fv', function(e) {
-            e.preventDefault();
-
-            var $form = $(e.target),
-                fv    = $(e.target).data('formValidation');
-			
-			$('#btngrabar').html('Grabando <i class="fa fa fa-spinner fa-spin"></i>');
-
-			$.ajax({
-                type: 'POST',
-                url: $form.attr('action'),
-	            data: $form.serialize(),
-            })
-            .done(function( data, textStatus, jqXHR ) {
-			     if ( console && console.log ) {
-			        console.log(data);
-
-			         if(data=='1'){
-					 	 swal({   title: "¡Excelente!",   text: "Se ha agregado el proveedor.",   type: "success",     confirmButtonColor: "#DD6B55",   confirmButtonText: "Agregar otro",   cancelButtonText: "Salir",  showCancelButton: true,   closeOnConfirm: false,   closeOnCancel: false , allowOutsideClick: true}, 
-		            	function(isConfirm){   
-			            	if (isConfirm) {  
-			            		location.reload();
-			            	}else{
-			            		javascript:window.history.back();   
-			            	}
-		            	});
-	            	} else if(data=='2') { 
-					 	 swal({   title: "¡Excelente!",   text: "Se ha modificado el proveedor.",   type: "success",     confirmButtonColor: "#DD6B55",   confirmButtonText: "Ok",   cancelButtonText: "Salir",  showCancelButton: false,   closeOnConfirm: false,   closeOnCancel: false , allowOutsideClick: true}, 
-		            	function(isConfirm){   
-			            	if (isConfirm) {  
-			            		javascript:window.history.back();  
-				            } else{  
-			            		javascript:window.history.back();   
-		            		} 
-		            	});
-
-					}else{
-						
-					}
-                    $('#btngrabar').html('<i class="fa fa-floppy-o"></i> Grabar');
-				
-				}	
-					
-			})
-			.fail(function( jqXHR, textStatus, errorThrown ) {
-			     if ( console && console.log ) {
-	                    alert('Ha ocurrido un error. ' +textStatus);
-			     }
-			});
-
-        }); 
-
-
-$('#formFormato')
-        .formValidation({
-            icon: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
-            },
-			locale: 'es_ES'
-        })
-        .on('success.form.fv', function(e) {
-            e.preventDefault();
-
-            var $form = $(e.target),
-                fv    = $(e.target).data('formValidation');
-			
-			$('#btngrabar').html('Grabando <i class="fa fa fa-spinner fa-spin"></i>');
-
-			$.ajax({
-                type: 'POST',
-                url: $form.attr('action'),
-	            data: $form.serialize(),
-            })
-            .done(function( data, textStatus, jqXHR ) {
-			     if ( console && console.log ) {
-			        console.log(data);
-
-			         if(data=='1'){
-					 	 swal({   title: "¡Excelente!",   text: "Se ha agregado el formato.",   type: "success",     confirmButtonColor: "#DD6B55",   confirmButtonText: "Agregar otra",   cancelButtonText: "Salir",  showCancelButton: true,   closeOnConfirm: false,   closeOnCancel: false , allowOutsideClick: true}, 
-		            	function(isConfirm){   
-			            	if (isConfirm) {  
-			            		location.reload();
-			            	}else{
-			            		javascript:window.history.back();   
-			            	}
-		            	});
-	            	} else if(data=='2') { 
-					 	 swal({   title: "¡Excelente!",   text: "Se ha modificado el formato.",   type: "success",     confirmButtonColor: "#DD6B55",   confirmButtonText: "Ok",   cancelButtonText: "Salir",  showCancelButton: false,   closeOnConfirm: false,   closeOnCancel: false , allowOutsideClick: true}, 
-		            	function(isConfirm){   
-			            	if (isConfirm) {  
-			            		javascript:window.history.back();  
-				            } else{  
-			            		javascript:window.history.back();   
-		            		} 
-		            	});
-
-					}else{
-						
-					}
-                    $('#btngrabar').html('<i class="fa fa-floppy-o"></i> Grabar');
-				
-				}	
-					
-			})
-			.fail(function( jqXHR, textStatus, errorThrown ) {
-			     if ( console && console.log ) {
-	                    alert('Ha ocurrido un error. ' +textStatus);
-			     }
-			});
-
-        });  
-
-$('#formPieza')
-        .formValidation({
-            icon: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
-            },
-			locale: 'es_ES'
-        })
-        .on('success.form.fv', function(e) {
-            e.preventDefault();
-
-            var $form = $(e.target),
-                fv    = $(e.target).data('formValidation');
-			
-			$('#btngrabar').html('Grabando <i class="fa fa fa-spinner fa-spin"></i>');
-
-			$.ajax({
-                type: 'POST',
-                url: $form.attr('action'),
-	            data: $form.serialize(),
-            })
-            .done(function( data, textStatus, jqXHR ) {
-			     if ( console && console.log ) {
-			        console.log(data);
-
-			         if(data=='1'){
-					 	 swal({   title: "¡Excelente!",   text: "Se ha agregado el formato.",   type: "success",     confirmButtonColor: "#DD6B55",   confirmButtonText: "Agregar otra",   cancelButtonText: "Salir",  showCancelButton: true,   closeOnConfirm: false,   closeOnCancel: false , allowOutsideClick: true}, 
-		            	function(isConfirm){   
-			            	if (isConfirm) {  
-			            		location.reload();
-			            	}else{
-			            		javascript:window.history.back();   
-			            	}
-		            	});
-	            	} else if(data=='2') { 
-					 	 swal({   title: "¡Excelente!",   text: "Se ha modificado el formato.",   type: "success",     confirmButtonColor: "#DD6B55",   confirmButtonText: "Ok",   cancelButtonText: "Salir",  showCancelButton: false,   closeOnConfirm: false,   closeOnCancel: false , allowOutsideClick: true}, 
-		            	function(isConfirm){   
-			            	if (isConfirm) {  
-			            		javascript:window.history.back();  
-				            } else{  
-			            		javascript:window.history.back();   
-		            		} 
-		            	});
-
-					}else{
-						
-					}
-                    $('#btngrabar').html('<i class="fa fa-floppy-o"></i> Grabar');
-				
-				}	
-					
-			})
-			.fail(function( jqXHR, textStatus, errorThrown ) {
-			     if ( console && console.log ) {
-	                    alert('Ha ocurrido un error. ' +textStatus);
-			     }
-			});
-
-        });  
-
-$('#formPieOp')
+$('#formFlota')
         .formValidation({
             icon: {
                 valid: 'glyphicon glyphicon-ok',
@@ -1195,7 +948,7 @@ $('#formPieOp')
 			var file 			= inputFileImage.files[0];
 			var data 			= new FormData();
 			data.append('foto',file);
-			var other_data = $('#formPieOp').serializeArray();
+			var other_data = $('#formFlota').serializeArray();
 			$.each(other_data,function(key,input){
 				data.append(input.name,input.value);
 			});
@@ -1213,7 +966,7 @@ $('#formPieOp')
 			        console.log(data);
 
 			         if(data=='1'){
-					 	 swal({   title: "¡Excelente!",   text: "Se ha agregado la opción.",   type: "success",     confirmButtonColor: "#DD6B55",   confirmButtonText: "Agregar otra",   cancelButtonText: "Salir",  showCancelButton: true,   closeOnConfirm: false,   closeOnCancel: false , allowOutsideClick: true}, 
+					 	 swal({   title: "¡Excelente!",   text: "Se ha agregado el vehículo.",   type: "success",     confirmButtonColor: "#DD6B55",   confirmButtonText: "Agregar otro",   cancelButtonText: "Salir",  showCancelButton: true,   closeOnConfirm: false,   closeOnCancel: false , allowOutsideClick: true}, 
 		            	function(isConfirm){   
 			            	if (isConfirm) {  
 			            		location.reload();
@@ -1222,7 +975,7 @@ $('#formPieOp')
 			            	}
 		            	});
 	            	} else if(data=='2') { 
-					 	 swal({   title: "¡Excelente!",   text: "Se ha modificado la opción.",   type: "success",     confirmButtonColor: "#DD6B55",   confirmButtonText: "Ok",   cancelButtonText: "Salir",  showCancelButton: false,   closeOnConfirm: false,   closeOnCancel: false , allowOutsideClick: true}, 
+					 	 swal({   title: "¡Excelente!",   text: "Se ha modificado el vehículo.",   type: "success",     confirmButtonColor: "#DD6B55",   confirmButtonText: "Ok",   cancelButtonText: "Salir",  showCancelButton: false,   closeOnConfirm: false,   closeOnCancel: false , allowOutsideClick: true}, 
 		            	function(isConfirm){   
 			            	if (isConfirm) {  
 			            		javascript:window.history.back();  
@@ -1346,206 +1099,6 @@ $('.btn-rechazar').on('click',function(){
 	
 	$('#ModalObjetar').modal('show');
 
-});
-
-
-
-
-$('#formObjetar')
-        .formValidation({
-            icon: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
-            },
-			locale: 'es_ES'
-        })
-        .on('success.form.fv', function(e) {
-            e.preventDefault();
-
-            var $form = $(e.target),
-                fv    = $(e.target).data('formValidation');
-			
-			$('#btnComentar2').html('<i class="fa fa fa-spinner fa-spin"></i>');
-
-			$.ajax({
-                type: 'POST',
-                url: $form.attr('action'),
-	            data: $form.serialize(),
-            })
-            .done(function( data, textStatus, jqXHR ) {
-			     if ( console && console.log ) {
-			        console.log(data);
-
-			        if(data=='1'){
-	            		location.reload();
-					}else{
-						
-					}
-                    $('#btnComentar2').html('<i class="fa fa-times"></i> Confirmar');
-				
-				}	
-					
-			})
-			.fail(function( jqXHR, textStatus, errorThrown ) {
-			     if ( console && console.log ) {
-	                    alert('Ha ocurrido un error. ' +textStatus);
-			     }
-			});
-
-        });   
-
-
-
-
-/*
-$('.btn-rechazar').on('click',function(){
-	pdID 	= $(this).data('ptid');
-	ptdItem = $(this).data('ptditem');
-	
-	swal({   title: "¿Estás seguro?",   text: "",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Si",     cancelButtonText: "No", closeOnConfirm: false }, function(){   
-		$.ajax({
-	        url: 'ajax/cambiar-estado-item-pedido.php',
-	        type: 'POST',
-	        data: { "pdID": pdID, "ptdItem": ptdItem,"estfin": 2},
-	        success: function(result) {
-	            console.log(result);
-	            if(result=='1'){
-			        location.reload();
-	            }else{
-	                
-	            }
-	        }
-	    });		
-	});	
-});
-*/
-
-
-
-$('.btn-aprobar').on('click',function(){
-	paisID 	= $(this).data('paisid');
-	pdID 	= $(this).data('ptid');
-	ptdItem = $(this).data('ptditem');
-	$.ajax({
-        url: 'ajax/comprobar-proveedor-item-pedido.php',
-        type: 'POST',
-        data: { "paisID": paisID, "pdID": pdID, "ptdItem": ptdItem},
-        success: function(result) {
-            console.log(result);
-            if(result=='1'){
-				$.ajax({
-			        url: 'ajax/cambiar-estado-item-pedido.php',
-			        type: 'POST',
-			        data: {  "paisID": paisID, "pdID": pdID, "ptdItem": ptdItem,"estfin": 3},
-			        success: function(result) {
-			            console.log(result);
-			            if(result=='1'){
-					        location.reload();
-			            }else{
-			                
-			            }
-			        }
-			    });	
-            }else{
-                swal("Error", "Debe elegir primero un proveedor", "error");
-            }
-        }
-    });		
-	
-	
-	
-
-});
-
-$('.btn-aprobarcot').on('click',function(){
-	paisID 	= $(this).data('paisid');
-	pdID 	= $(this).data('ptid');
-	ptdItem = $(this).data('ptditem');
-	$.ajax({
-        url: 'ajax/cambiar-estado-item-pedido.php',
-        type: 'POST',
-        data: { "paisID":paisID, "pdID": pdID, "ptdItem": ptdItem,"estfin": 5},
-        success: function(result) {
-            console.log(result);
-            if(result=='1'){
-			 	 swal({   title: "¡Listo!",   text: "Se ha aprobado la cotización.",   type: "success",     confirmButtonColor: "#DD6B55",   confirmButtonText: "Ok",   cancelButtonText: "Salir",  showCancelButton: false,   closeOnConfirm: false,   closeOnCancel: false , allowOutsideClick: true}, 
-            	function(isConfirm){   
-	            	if (isConfirm) {  
-						location.reload();
-	            	}else{
-	            		javascript:window.history.back();   
-	            	}
-            	});	            
-            }else{
-                
-            }
-        }
-    });	
-});
-
-$('.btn-rechazarcot').on('click',function(){
-	paisID 	= $(this).data('paisid');
-	pdID 	= $(this).data('ptid');
-	ptdItem = $(this).data('ptditem');
-	$.ajax({
-        url: 'ajax/rechaza-cotizacion.php',
-        type: 'POST',
-        data: { "paisID":paisID, "pdID": pdID, "ptdItem": ptdItem,"estfin": 3},
-        success: function(result) {
-            console.log(result);
-            if(result=='1'){
-		        //location.reload();
-            }else{
-                
-            }
-        }
-    });	
-});
-
-$('#btn-all-aprobarcot').on('click',function(){
-	paisID 	= $(this).data('paisid');
-	pdID = $(this).data('ptid');
-	ptdRes = $(this).data('ptdres');
-	swal({   title: "¿Seguro?",   text: "Aprobarás toda la cotización.",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#0084D6",   confirmButtonText: "Si, aprobar.",    cancelButtonText: "No",  closeOnConfirm: false }, 
-	function(){   	
-		$.ajax({
-            url: 'ajax/cambiar-estado-pedido-x-responsable.php',
-            type: 'POST',
-            data: { "paisID":paisID, "pdID": pdID, "estini":4,"estfin":5, "ptdRes":ptdRes},
-            success: function(result) {
-                console.log(result);
-                if(result=='1'){
-			        location.reload();
-                }else{
-	                
-                }
-            }
-        });	
-	});
-});
-
-
-$('#btn-all-rechazarcot').on('click',function(){
-	paisID 	= $(this).data('paisid');
-	pdID = $(this).data('ptid');
-	ptdRes = $(this).data('ptdres');
-	swal({   title: "¿Seguro?",   text: "Rechazarás toda la cotización.",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#d9534f",   confirmButtonText: "Si, rechazar.",    cancelButtonText: "No",  closeOnConfirm: false }, 
-	function(){   	
-		$.ajax({
-            url: 'ajax/cambiar-estado-pedido-x-responsable.php',
-            type: 'POST',
-            data: { "paisID":paisID, "pdID": pdID, "estini":4,"estfin":3, "ptdRes":ptdRes},
-            success: function(result) {
-                console.log(result);
-                if(result=='1'){
-			        location.reload();
-                }else{
-	                
-                }
-            }
-        });	
-	});
 });
 
 
@@ -2572,31 +2125,6 @@ $('#formStd')
 
         });  
 
-$('#btnAgregaChecklist').on('click',function(){
-	
-	tieID 	= $(this).data('tieid');
-	usuID 	= $(this).data('usuid');
-	
-	swal({   title: "¿Seguro?",   text: "Crearás un nuevo checklist.",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#0084D6",   confirmButtonText: "Si, crear.",    cancelButtonText: "No",  closeOnConfirm: false }, 
-	function(){   	
-		$.ajax({
-            url: 'ajax/agrega-checklist-x-tienda.php',
-            type: 'POST',
-            data: { "tieID": tieID, "usuID": usuID},
-            success: function(result) {
-                console.log(result);
-                if(result.success){
-					clxtID = result.clxtID;
-			        window.location.href='formulario-checklists-x-tienda.php?clxtID='+clxtID;
-                }else{
-					swal("Error", 'Ha ocurrido un error', "error");
-                }
-            }
-        });	
-	});
-});
-    
-    
 $('.clxtdStatus').on('change',function(){    
 	clxtID 		= $(this).data('clxtid');
 	clxtdClID 	= $(this).data('clxtdclid');
@@ -2638,108 +2166,7 @@ $('.clxtdCom').on('blur',function(){
         }
     });	
 });  
-    
-$('.clxtCom').on('blur',function(){    
-	clxtID 		= $(this).data('clxtid');
-	clxtdClID 	= $(this).data('clxtdclid');
-	clxtCom 	= $(this).val();  
-	console.log({ "clxtID": clxtID, "clxtdClID": clxtdClID,"clxtCom": clxtCom});
-	$.ajax({
-        url: 'ajax/graba-checklist-x-tienda-comentario-general.php',
-        type: 'POST',
-        data: { "clxtID": clxtID, "clxtdClID": clxtdClID,"clxtCom": clxtCom},
-        success: function(result) {
-            console.log(result);
-            if(result=='1'){
-                
-            }else{
-               
-            }
-        }
-    });	
-});  
-    
- $('.clxtIntro').on('blur',function(){    
-	clxtID 		= $(this).data('clxtid');
-	clxtdClID 	= $(this).data('clxtdclid');
-	clxtIntro 	= $(this).val();  
-	console.log({ "clxtID": clxtID, "clxtdClID": clxtdClID,"clxtIntro": clxtIntro});
-	$.ajax({
-        url: 'ajax/graba-checklist-x-tienda-introduccion.php',
-        type: 'POST',
-        data: { "clxtID": clxtID, "clxtdClID": clxtdClID,"clxtIntro": clxtIntro},
-        success: function(result) {
-            console.log(result);
-            if(result=='1'){
-                
-            }else{
-               
-            }
-        }
-    });	
-}); 
-    
- $('a.btnFotosChecklists').click(function(){
-	$('#ModalFotos').modal('show');
-	clxtdClID 	= $(this).data('clxtdclid');
-	clxtdClDID 	= $(this).data('clxtdcldid');
-	
-	$('#ClID').val(clxtdClID);
-	$('#ClDID').val(clxtdClDID);
 
-});    
-    
-    
- $('.btnenviarChecklist').on('click',function(){
-	
-	$(this).html('<i class="fa fa fa-spinner fa-spin"></i> Enviando ');
-	
-	clxtID 	= $(this).data('clxtid');
-
-	$.ajax({
-        url: 'ajax/comprueba-checklist.php',
-        type: 'POST',
-        data: { "clxtID": clxtID},
-        success: function(result) {
-            console.log(result);
-            if(result==0){
-				swal({   title: "¿Estás seguro?",   text: "Esta acción dará por terminado el checklist y se lo enviará por e-mail",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Si",   closeOnConfirm: false, cancelButtonText: "No", }, function(isConfirm){    
-	            	if (isConfirm) {  
-		            	html = $('.sa-button-container').html();
-		            	$('.sa-button-container').html('<i class="fa fa fa-spinner fa-spin"></i>');
-						$.ajax({
-					        url: 'ajax/procesa-checklist.php',
-					        type: 'POST',
-					        data: { "clxtID": clxtID},
-					        success: function(result) {
-					            console.log(result);
-									$('.sa-button-container').html(html);
-					            if(result=='1'){
-						            
-									swal({   title: "Excelente",   text: "Se ha enviado el checklist.",   type: "success",   showCancelButton: false,   confirmButtonColor: "#DD6B55",   confirmButtonText: "OK",   closeOnConfirm: false, cancelButtonText: "No", }, function(isConfirm){  
-										if (isConfirm) {  
-											javascript:window.history.back();
-										}
-									});
-					            }else{
-					                swal("Ha ocurrido un error", 'Por favor vuelva a intentarlo.', "error");
-									$('.btnenviarChecklist').html('Terminar y Enviar <i class="fa fa-envelope" aria-hidden="true"></i>');
-					            }
-					        }
-					    });	
-		            } else{  
-						$('.btnenviarChecklist').html('Terminar y Enviar <i class="fa fa-envelope" aria-hidden="true"></i>');
-            		}   
-				
-				});
-            }else{
-				swal("Checklist incompleto", 'Debe completar todos los ítems.', "error");
-				$('.btnenviarChecklist').html('Terminar y Enviar <i class="fa fa-envelope" aria-hidden="true"></i>');
-            }
-        }
-    });	
-		
-});
        
     
     
@@ -2809,3 +2236,13 @@ $('.pedProv').on('change',function(){
 	});
 	
 }); 
+
+
+$("#catID").bind("change", function() {
+	catID = $(this).val();
+	if(catID>0){
+		window.location =  window.location.protocol + "//" + window.location.host + window.location.pathname + '?catID='+catID;
+	}else{
+		window.location =  window.location.protocol + "//" + window.location.host + window.location.pathname + '?catID='+0;
+	}
+});	

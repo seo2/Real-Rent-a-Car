@@ -38,44 +38,13 @@
 	</footer>
 
   <!--  SCRIPTS -->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="assets/js/materialize.js?ver=2"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   <script src="assets/js/jquery.easing.min.js"></script>
   <script src="assets/owlcarousel/owl.carousel.js"></script>
-  <script src="assets/js/jquery.autocomplete.min.js"></script>
+<!--   <script src="assets/js/jquery.autocomplete.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
   <script src="assets/js/init.js?ver=2.2"></script>
-  
-  
- <script> 
-	$(function(){
-  var currencies = [
-	  
-	  <?php
-	$categorias = $db->rawQuery("select * from comuna where comuna_provincia_id >=130 and comuna_provincia_id < 140");
-	if($categorias){
-		foreach ($categorias as $p) {
-			
-			echo "{ value: '".addslashes($p['comuna_nombre'])."', id: '".$p['comuna_id']."', tipo: '-', busqueda: 'Cat' },";
-		}
-	}  	
-  
-	  ?>
-    
-  ];
-  
-  // setup autocomplete function pulling from currencies[] array
-  $('#comuna').autocomplete({
-    lookup: currencies,
-    onSelect: function (suggestion) {
-     // alert(suggestion.busqueda+': '+suggestion.value+ ' - id: '+ suggestion.id);
-    }
-  });
-  
 
-}); 
-
-
-</script>  
 
   </body>
 </html>

@@ -1,7 +1,5 @@
 <?php
-	require_once("admin/_lib/config.php");
-	require_once("admin/_lib/MysqliDb.php");
-	$db = new MysqliDb (DBHOST, DBUSER, DBPASS, DBNAME);
+	require_once("admin/functions.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,29 +20,39 @@
 </head>
 
 <body>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-106156785-1', 'auto');
+	  ga('send', 'pageview');
+	</script>
+
 	<header>
 	  <div class="navbar-fixed">
 		  <nav class="" role="navigation">
-	    <div class="nav-wrapper container"><a href="index.html" target="_self" class="brand-logo"><img src="assets/img/real_rent_a_car.svg" width="150"/></a>
+	    <div class="nav-wrapper container"><a href="index.php" target="_self" class="brand-logo"><img src="assets/img/real_rent_a_car.svg" width="150"/></a>
 	      <ul class="right hide-on-med-and-down">
-	        <li><a href="reservar.html" target="_self" class="">Reservar</a></li>
-	        <li><a href="vehiculos.html" target="_self" class="">Vehículos</a></li>
-	        <li><a href="faqs.html" target="_self" class="">FAQS</a></li>
-	        <li><a href="somos.html" target="_self" class="">SOMOS</a></li>
-	        <li><a href="contacto.html" target="_self" class="">CONTACTO</a></li>
+	        <li><a href="reservar.php" target="_self" class="">Reservar</a></li>
+	        <li><a href="vehiculos.php" target="_self" class="">Vehículos</a></li>
+	        <li><a href="faqs.php" target="_self" class="">FAQS</a></li>
+	        <li><a href="somos.php" target="_self" class="">SOMOS</a></li>
+	        <li><a href="contacto.php" target="_self" class="">CONTACTO</a></li>
 	      	<li><a href="#" target="_blank"><i class="fa fa-facebook fa-lg"></i></a></li>
-					<li><a href="#" target="_blank"><i class="fa fa-twitter fa-lg"></i></a></li>
-					<li><a href="#" target="_blank"><i class="fa fa-youtube fa-lg"></i></a></li>
-					<li><a href="#" target="_blank"><i class="fa fa-instagram fa-lg"></i></a></li>
+			<li><a href="#" target="_blank"><i class="fa fa-twitter fa-lg"></i></a></li>
+			<li><a href="#" target="_blank"><i class="fa fa-youtube fa-lg"></i></a></li>
+			<li><a href="#" target="_blank"><i class="fa fa-instagram fa-lg"></i></a></li>
 	      </ul>
 	
 	      <ul id="nav-mobile" class="side-nav">
-		      <li class="brand-logo-mobile"><a href="index.html" target="_self"><img src="assets/img/real_rent_a_car.svg" width="150"/></a></li>
-	        <li><a href="reservar.html" target="_self" class="">Reservar</a></li>
-	        <li><a href="vehiculos.html" target="_self" class="">Vehículos</a></li>
-	        <li><a href="faqs.html" target="_self" class="">FAQS</a></li>
-	        <li><a href="somos.html" target="_self" class="">SOMOS</a></li>
-	        <li><a href="contacto.html" target="_self" class="">CONTACTO</a></li>
+		      <li class="brand-logo-mobile"><a href="index.php" target="_self"><img src="assets/img/real_rent_a_car.svg" width="150"/></a></li>
+	        <li><a href="reservar.php" target="_self" class="">Reservar</a></li>
+	        <li><a href="vehiculos.php" target="_self" class="">Vehículos</a></li>
+	        <li><a href="faqs.php" target="_self" class="">FAQS</a></li>
+	        <li><a href="somos.php" target="_self" class="">SOMOS</a></li>
+	        <li><a href="contacto.php" target="_self" class="">CONTACTO</a></li>
 	        <li class="redes_sociales">
 		        <a href="#" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
 						<a href="#" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
