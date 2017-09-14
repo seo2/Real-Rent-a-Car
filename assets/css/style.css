@@ -470,7 +470,7 @@ nav i.material-icons {
 
 .btn:focus, .btn-large:focus,
 .btn-floating:focus {
-  background-color: #1d7d74;
+  background-color: #000;
 }
 
 .btn {
@@ -960,10 +960,10 @@ ul.modelos_autos li a:hover, ul.modelos_autos li a.selected {
 .picker__weekday-display{background: #000;}
 .picker__nav--prev:hover, .picker__nav--next:hover{background: #f68935;}
 
+/* .picker__date-display{display: none;} */
 
 
-
-
+.progress {background-color: #fff;}
 
 
 

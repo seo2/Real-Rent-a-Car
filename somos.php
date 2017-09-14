@@ -9,11 +9,10 @@
 			<div class="section">
 				<div class="row">
 					<div class="col s12 l8 offset-l2 features_content">
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut tempor tellus. Aliquam molestie eu nulla id varius. Sed convallis eget leo a suscipit. Phasellus mollis mollis mauris, tristique auctor ipsum efficitur ac. Praesent sed magna venenatis, commodo quam in, porttitor magna. Pellentesque dignissim ipsum id iaculis scelerisque. Donec egestas tristique risus a vulputate. Aenean in nisl arcu. Duis vehicula porta mi ut aliquet. Nulla ullamcorper diam eget tempor condimentum. Donec nec leo volutpat, pretium tortor in, lacinia dolor. Sed rutrum metus et porttitor malesuada. Integer felis odio, bibendum porta tempor ut, semper a dolor. Donec ac ligula quis odio ultricies pretium eleifend sed augue. Aenean rutrum maximus justo sed mollis.<br><br>
-
-Mauris ipsum tellus, congue eget porttitor eget, cursus volutpat massa. Praesent lacinia ipsum ac arcu interdum ornare. Sed rhoncus vulputate lorem et sodales. Donec pharetra, lectus id ornare molestie, ipsum quam convallis lorem, eu scelerisque massa libero ac enim. In placerat blandit orci. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse ut lectus vel tellus convallis elementum ac quis lacus. Morbi libero libero, egestas id pharetra vel, bibendum vitae neque. Cras ut nibh auctor, pellentesque leo vitae, porttitor quam. Morbi ac eros feugiat, tincidunt tortor sed, interdum erat.
-						</p>
+					<h4>VISIÓN</h4>
+					<p>Posicionarnos como el Rent a Car líder del mercado nacional, siendo reconocidos por nuestros clientes por la calidad de servicio, el profesionalismo de nuestro personal y el estándar de primer nivel de nuestra flota, bajo un marco de excelencia, mejora contínua y la  satisfacción de las necesidades de nuestros usuarios.</p>
+					<h4>MISIÓN</h4>
+					<p>Cada compromiso lo llevaremos adelante con profesionalismo y vocación de servicio, ofreciendo a nuestros clientes soluciones integrales de movilización, a un costo razonable con el desafiío de entregar una experiencia a la altura de las exigencias de nuestros clientes.</p>
 					</div><!-- /.col -->
 				</div><!-- /.row -->
 			</div><!-- /.section -->			

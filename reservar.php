@@ -73,8 +73,8 @@
  
 											
 										</div><!-- /.features_car -->
-									  <p class="grey-text">$<?php echo number_format($catPrec,0,',','.'); ?> por día, total por 5 días $114.950</p>
-									  <a href="" target="" class="btn_orange">Elegir</a>
+									  <p class="grey-text">$<?php echo number_format($catPrec,0,',','.'); ?> por día, total por <span class="dias" data-valor="<?php echo $catPrec; ?>"></span></p>
+									  <a href="javascript:void(0);" target="" class="btn_orange btn-elegir" data-auto="<?php echo $r['autoID']; ?>" >Elegir</a>
 									</div>
 								</div><!-- /.col -->
 							</div><!-- /.row -->
@@ -86,8 +86,8 @@
 					</div><!-- /.box_cars -->
 						
 						<div class="row">
-							<div class="col s6"><a href="" target="" class="btn_white left">Cancelar</a></div>
-							<div class="col s6"><a href="" target="" class="btn_white right">Volver</a></div>
+							<div class="col s6"><a href="javascript:void(0);" target="" class="btn_white left">Cancelar</a></div>
+							<div class="col s6"><a href="index.php" target="" class="btn_white right">Volver</a></div>
 						</div>
 				</div><!-- /.col l8-->
 	
@@ -97,23 +97,23 @@
 							<p>Resumen de la reserva</p>
 						</div><!-- /.box_txt -->
 						
-						<div class="dato_reserva">
-							<p><span>Donde entregar:</span><a href="" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
+						<div class="dato_reserva hide" id="direccion_entrega">
+							<p><span>Donde entregar:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
 							<p>Miguel Claro 1457, Providencia</p>
 						</div><!-- /.datos_reserva -->
 						
 						<div class="dato_reserva">
-							<p><span>Fecha entrega:</span><a href="" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
-							<p>26 Junio 2017</p>
+							<p><span>Fecha entrega:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
+							<p id="fecha_desde">26 Junio 2017</p>
 						</div><!-- /.datos_reserva -->
 						
 						<div class="dato_reserva">
-							<p><span>Fecha retiro:</span><a href="" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
-							<p>30 Junio 2017</p>
+							<p><span>Fecha retiro:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
+							<p id="fecha_hasta">30 Junio 2017</p>
 						</div><!-- /.datos_reserva -->
 						
-						<div class="dato_reserva">
-							<p><span>Retiro mismo lugar de entrega</span><a href="" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
+						<div class="dato_reserva hide" id="retiro_mismo_lugar">
+							<p><span>Retiro mismo lugar de entrega</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
 						</div><!-- /.datos_reserva -->
 						
 					</div><!-- /.box_side -->

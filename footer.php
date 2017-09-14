@@ -1,16 +1,18 @@
 	<footer>
 		<div class="section">
 			<div class="container">
+<!--
 				<div class="row">
 					<div class="col l6 push-l6 content">
 						<img src="assets/img/real_rent_a_car_blanco.svg" width="180"/>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas enim lectus, lobortis ac enim ac, faucibus fringilla lacus. Fusce malesuada tincidunt felis, sed mollis magna feugiat ut. Sed sapien nisi, consequat pretium sollicitudin at, tristique feugiat lorem.</p>
-					</div><!-- /.col -->
+					</div>
 					<div class="col l6 pull-l6">
 						<img src="assets/img/footer_img.jpg" class="responsive-img"/>
-					</div><!-- /.col -->
+					</div>
 					
-				</div><!-- /.row -->
+				</div>
+-->
 				<div class="row">
 					<div class="col l6 s12 content">
 						<p class="left-align">
@@ -42,9 +44,32 @@
   <script src="assets/js/jquery.easing.min.js"></script>
   <script src="assets/owlcarousel/owl.carousel.js"></script>
 <!--   <script src="assets/js/jquery.autocomplete.min.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-  <script src="assets/js/init.js?ver=2.2"></script>
+	<script src="assets/js/materialize.min.js"></script>
+	<script src="assets/js/moment-with-locales.min.js"></script>
+	<script src="assets/js/init.js?ver=2.2"></script>
 
+<script>
+
+  $('input.autocomplete').autocomplete({
+    data: {
+	<?php
+		$categorias = $db->rawQuery("select * from comuna where comuna_provincia_id >=130 and comuna_provincia_id < 140");
+		if($categorias){
+			foreach ($categorias as $p) {
+				
+				echo "'".addslashes($p['comuna_nombre'])."': null,";
+			}
+		}  	
+	  
+		  ?>	    
+    },
+    limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+    onAutocomplete: function(val) {
+      // Callback function when value is autcompleted.
+    },
+    minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+  });
+</script>
 
   </body>
 </html>

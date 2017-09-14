@@ -11,9 +11,11 @@
 				
 				<div class="row">
 					<div class="col s12 l8 offset-l2 features_content">
+<!--
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ut tempor tellus. Aliquam molestie eu nulla id varius. Sed convallis eget leo a suscipit. Phasellus mollis mollis mauris, tristique auctor ipsum efficitur ac. Praesent sed magna venenatis, commodo quam in, porttitor magna. Pellentesque dignissim ipsum id iaculis scelerisque. Donec egestas tristique risus a vulputate. Aenean in nisl arcu. Duis vehicula porta mi ut aliquet. Nulla ullamcorper diam eget tempor condimentum. Donec nec leo volutpat, pretium tortor in, lacinia dolor. Sed rutrum metus et porttitor malesuada. Integer felis odio, bibendum porta tempor ut, semper a dolor. Donec ac ligula quis odio ultricies pretium eleifend sed augue. Aenean rutrum maximus justo sed mollis.
 						</p>
+-->
 					</div><!-- /.col -->
 				</div><!-- /.row -->
 				

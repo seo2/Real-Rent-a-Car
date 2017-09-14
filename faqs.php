@@ -2,7 +2,7 @@
 	<main>
  	<div class="barra_naranja">
 	 	<div class="container">
-		 	<h4>FAQS</h4>
+		 	<h4>Requisitos</h4>
 	 	</div><!-- /.container -->
  	</div><!-- /.barra_naranja -->
 	<div class="container">

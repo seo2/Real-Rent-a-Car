@@ -21,15 +21,16 @@ session_start();
 <? 
 	include('header.php');
 	
-	if($_GET['segID'] ){
-		$pieID 	 	= $_GET['segID'];
-		$sql  		= "select * from autos_segmentos where segID = $pieID";
+	if($_GET['opcID'] ){
+		$opcID	 	= $_GET['opcID'];
+		$sql  		= "select * from opcionales where opcID = $opcID";
 		
 	  	$resultado = $db->rawQuery($sql);
 		if($resultado){
 			foreach ($resultado as $r) {
-				$formDesc 	= $r['segNom'];
-				$formEst 	= $r['segEst'];
+				$opcDesc 	= $r['opcDesc'];
+				$opcPrec 	= $r['opcPrec'];
+				$formEst 	= $r['opcEst'];
 	 		} 
 	    }		
 		$opcion = 'Modificar';	
@@ -49,26 +50,30 @@ session_start();
 
 		    <div id="cajaposiciones">
 			    <div class="col-xs-12 col-md-6 col-md-offset-3" id="pedidohead">
-			    	<h2><?= $opcion; ?> Segmento</h2>
+			    	<h2><?= $opcion; ?> Ítem Opcional</h2>
 			    </div>
  
 				<div class="col-xs-12 col-md-6 col-md-offset-3 posicion">
 					<div class="row">
 					
-						<form action="ajax/graba-segmentos.php" method="post" accept-charset="utf-8" id="formStd">
+						<form action="ajax/graba-opcionales.php" method="post" accept-charset="utf-8" id="formStd">
 							<div class="form-group">
 								<label class="ptdCan">Descripción:</label>
-								<input type="text" class="form-control" id="segNom" placeholder="Nombre del Segmento" name="segNom" value="<?= $formDesc; ?>" required>
-								<? if($_GET['segID'] ){?>
-								<input type="hidden" name="segID" 	value="<?= $pieID; ?>">
+								<input type="text" class="form-control" id="segNom" placeholder="Nombre del ítem" name="opcDesc" value="<?= $formDesc; ?>" required>
+								<? if($_GET['opcID'] ){?>
+								<input type="hidden" name="opcID" 	value="<?= $opcID; ?>">
 								<? } ?>
+							</div>
+							<div class="form-group">
+								<label class="ptdCan">Precio:</label>
+								<input type="text" class="form-control" id="opcPrec" placeholder="precio" name="opcPrec" value="<?= $opcPrec; ?>" required>
 							</div>
 	
 							<div class="form-group">
 								<label for="ptdGra">Estado:</label>
-								<select class="form-control" name="segEst" required id="formEst">
-									<option value="0" <? if($formEst==0){ ?>selected<? } ?>>Activo</option>
-									<option value="1" <? if($formEst==1){ ?>selected<? } ?>>Inactivo</option>
+								<select class="form-control" name="opcEst" required id="formEst">
+									<option value="0" <? if($opcEst==0){ ?>selected<? } ?>>Activo</option>
+									<option value="1" <? if($opcEst==1){ ?>selected<? } ?>>Inactivo</option>
 								</select>
 							</div>			
 							<hr>

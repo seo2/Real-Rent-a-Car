@@ -47,6 +47,8 @@ global $usuID;
 					<br>
 					<a href="segmentos.php" class="btn btn-primary btn-lg btn-block">Segmentos</a>
 					<br>
+					<a href="opcionales.php" class="btn btn-primary btn-lg btn-block">Opcionales</a>
+					<br>
 					<a href="usuarios.php" class="btn btn-primary btn-lg btn-block">Usuarios</a>
 				</div>
 			</div>

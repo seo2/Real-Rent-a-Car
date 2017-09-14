@@ -27,18 +27,18 @@
 	                 	
                  		<div class="divider"></div>
                  		
-	                 	<ul>
-		                 	<li><a href="" target="" class="selected">Reservar</a></li>
-		                 	<li>/</li>
-		                 	<li><a href="" target="" class="">Ver Reserva</a></li>
-	                 	</ul>
+	                	<ul>
+		                	<li><a href="" target="" class="selected">Reservar</a></li>
+		                	<li>/</li>
+		                	<li><a href="" target="" class="">Ver Reserva</a></li>
+	                	</ul>
                  	
-									 	<div class="divider"></div>
+						<div class="divider"></div>
 									 	
-                 	</div><!-- /.row -->
+                	</div><!-- /.row -->
                  	
 					<div class="row">
-	                	<form class="col s12 reserva_home_form">
+	                	<form class="col s12 reserva_home_form" id="formReserva">
 							<div class="row">
 		               	        <div class="input-field col s6">
 		               	          <input placeholder="02/01/2009" id="desde_el" type="date" class="validate datepicker" readonly="readonly" name="desde">
@@ -56,15 +56,15 @@
 		                 	    </div>
 		               	        <div id="entrega" style="display:none;">
 			               	        <div class="input-field col s8">
-										<input placeholder="Infante" id="direccion" type="text" class="validate">
+										<input placeholder="Infante" id="direccion" type="text" class="validate" name="direccion">
 										<label for="direccion">Dirección:</label>
 			               	        </div>
 			               	        <div class="input-field col s4">
-										<input placeholder="22" id="numero" type="text" class="validate">
+										<input placeholder="22" id="numero" type="text" class="validate" name="numero">
 										<label for="numero">Número:</label>
 			               	        </div>
 			               	        <div class="input-field col s12">
-										<input placeholder="Providencia" id="comuna" type="text" class="validate autocomplete">
+										<input placeholder="Providencia" id="comuna" type="text" class="validate autocomplete" name="comuna">
 										<label for="comuna">Comuna:</label>
 			               	        </div>
 			                 	    <div class="col l12">
@@ -77,9 +77,12 @@
 							</div><!-- /.row -->
 							<div class="row">
 								<div class="col s12">
-									<button class="btn left z-depth-0" type="submit" name="action">Comenzar</button>
+									<button class="btn left z-depth-0" type="submit" name="action">Hacer Reserva</button>
 								</div><!-- .col -->
 							</div><!-- /.row -->
+								<div class="progress hide" id="progreso">
+							      <div class="indeterminate"></div>
+							  </div>
 						</form>
                 	</div><!-- /.row -->
                	</div><!-- /.reserva_home -->
