@@ -6,11 +6,17 @@ var direccion   = localStorage.getItem('direccion');
 var numero   	= localStorage.getItem('numero'); 
 var comuna   	= localStorage.getItem('comuna'); 
 var auto   		= localStorage.getItem('auto'); 
-console.log(auto);
 var opcional 	= new Array();
 var supertotal 	= 0;
-//opcional = localStorage.getItem('opcional'); 
+var opcional2 	= localStorage.getItem('opcional'); 
 
+console.log('opcional: '+ opcional2);
+if(opcional2){
+	opcional = JSON.parse("[" + opcional2 + "]");
+	
+	$('#btn_continuar').attr('href',"resumen_reserva.php?autoID="+auto+"&opcionales="+opcional2);
+}
+console.log(opcional);
 $('.button-collapse').sideNav();
 $('.parallax').parallax();
 
@@ -116,6 +122,19 @@ $('.dias2').each(function(i, obj) {
     supertotal = supertotal + total;
     $('.supertotal').html(formatNumber(supertotal));
 });
+
+$('.btn-opcional').each(function(i, obj) {
+    opcID = $(this).data('id');
+    if(opcional2){
+	    var index1 = opcional2.indexOf(opcID);
+		if (index1 > -1) {
+	    	console.log('opciones: '+opcID);
+			$(this).html('Quitar').addClass('btn_white');
+		}
+    }
+});
+
+
 
 
 $('#fecha_desde').html(desde_el);
@@ -262,10 +281,10 @@ $('.btn-opcional').on('click', function(){
 	}else{
 		$(this).html('Quitar').addClass('btn_white');
 		opcional.push(idopcional);
-		$('#btn_continuar').attr('href',"resumen_reserva.php?autoID="+auto+"&opcionales="+opcional);
-	}
-	
+	}	
+	$('#btn_continuar').attr('href',"resumen_reserva.php?autoID="+auto+"&opcionales="+opcional);
 	localStorage.setItem('opcional', opcional);
 	console.log(opcional);
 });
+//localStorage.removeItem('opcional');
 
