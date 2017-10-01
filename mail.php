@@ -45,12 +45,12 @@
         </div>
         <!-- /.datos_reserva -->
         <div class="dato_reserva" style="box-sizing: inherit; color: #343233; font-size: 14px; font-weight: 400; margin: 15px 0;">
-         <p style="box-sizing: inherit; display: block; margin: 0;"><span style="box-sizing: inherit; font-size: 14px; font-weight: 700;">Fecha retiro:</span></p>
+         <p style="box-sizing: inherit; display: block; margin: 0;"><span style="box-sizing: inherit; font-size: 14px; font-weight: 700;">Fecha devolución:</span></p>
          <p style="box-sizing: inherit; display: block; margin: 0;">30 Junio 2017</p>
         </div>
         <!-- /.datos_reserva -->
         <div class="dato_reserva" style="box-sizing: inherit; color: #343233; font-size: 14px; font-weight: 400; margin: 15px 0;">
-         <p style="box-sizing: inherit; display: block; margin: 0;"><span style="box-sizing: inherit; font-size: 14px; font-weight: 700;">Retiro mismo lugar de entrega.</span></p>
+         <p style="box-sizing: inherit; display: block; margin: 0;"><span style="box-sizing: inherit; font-size: 14px; font-weight: 700;">devolución mismo lugar de entrega.</span></p>
         </div>
         <!-- /.datos_reserva -->
         <div class="dato_reserva" style="box-sizing: inherit; color: #343233; font-size: 14px; font-weight: 400; margin: 15px 0;">

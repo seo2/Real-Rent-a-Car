@@ -11,7 +11,7 @@
 	              </div><!-- /.section -->
               </div><!-- /.col -->
               <div class="col l6 m12">
-               	<div class="reserva_home">
+               	<div class="reserva_home" id="reserva_home">
                  	<div class="row">
 <!--
 	                 	<div class="col l3 s3">
@@ -91,12 +91,23 @@
 										</select>
 										<label for="comuna" class="active">Comuna:</label>
 			               	        </div>
+			               	        <div class="input-field col s12">
+										<select  id="devolucion" name="devolucion" class="validate">
+<!-- 											<option value="" disabled selected>Seleccione</option>  -->
+											<option value="1">Oficinas de Real Rent a Car</option>	 
+											<option value="2">Misma dirección de entrega</option> 
+											<option value="2">Lugar a acordar telefónicamente</option>
+										</select>
+										<label for="devolucion" class="active">Devolución:</label>
+			               	        </div>
+<!--
 			                 	    <div class="col l12">
 				                 	    <p>
 										    <input type="checkbox" id="test6" />
 										    <label for="test6">¿Retiramos el vehículo en la misma dirección?</label>
 										</p>
 			                 	    </div>
+-->
 		               	        </div>
 							</div><!-- /.row -->
 							<div class="row">
@@ -159,7 +170,7 @@
 				<div class="col l12 m12 s12">
 					<div id="owl-demo" class="owl-carousel owl-theme">
 <?php
-					$sql0  = "select * from autos_flota where autoEst = 0 and autoFoto != '' order by catID";					
+					$sql0  = "select * from autos_flota where autoEst = 0 and autoFoto != '' group by catID order by catID";					
 				  	$formatos = $db->rawQuery($sql0);
 					if($formatos){
 						foreach ($formatos as $r) {	
@@ -168,7 +179,7 @@
 						  <img src="admin/ajax/uploads/<?php echo $r['autoFoto']; ?>" width="185"/>
 						  <h5><?php echo get_segmento(get_segmento_cat($r['catID'])); ?></h5>
 						  <p><?php echo $r['autoDesc']; ?></p>
-						  <a href="" target="" class="btn_orange">Reservar</a>
+						  <a href="#reserva_home" class="btn_orange">Reservar</a>
 						</div>
 <?php 				
 					} 

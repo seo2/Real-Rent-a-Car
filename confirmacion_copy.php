@@ -113,12 +113,12 @@
 							</div><!-- /.datos_reserva -->
 							
 							<div class="dato_reserva">
-								<p><span>Fecha retiro:</span></p>
+								<p><span>Fecha devolución:</span></p>
 								<p>30 Junio 2017</p>
 							</div><!-- /.datos_reserva -->
 							
 							<div class="dato_reserva">
-								<p><span>Retiro mismo lugar de entrega.</span></p>
+								<p><span>devolución mismo lugar de entrega.</span></p>
 							</div><!-- /.datos_reserva -->
 							
 							<div class="dato_reserva">

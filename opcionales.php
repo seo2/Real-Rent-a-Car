@@ -116,7 +116,12 @@
 						
 						<div class="dato_reserva hide" id="direccion_entrega">
 							<p><span>Donde entregar:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
-							<p>Miguel Claro 1457, Providencia</p>
+							<p id="direccion"></p>
+						</div><!-- /.datos_reserva -->
+						
+						<div class="dato_reserva hide" id="lugar_devolucion">
+							<p><span>Devolución:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
+							<p id="ladevolucion"></p>
 						</div><!-- /.datos_reserva -->
 						
 						<div class="dato_reserva">
@@ -125,12 +130,8 @@
 						</div><!-- /.datos_reserva -->
 						
 						<div class="dato_reserva">
-							<p><span>Fecha retiro:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
+							<p><span>Fecha devolución:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
 							<p id="fecha_hasta"></p>
-						</div><!-- /.datos_reserva -->
-						
-						<div class="dato_reserva hide" id="retiro_mismo_lugar">
-							<p><span>Retiro mismo lugar de entrega</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
 						</div><!-- /.datos_reserva -->
 						
 						<div class="box_grey">

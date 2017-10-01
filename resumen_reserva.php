@@ -129,10 +129,11 @@
 								foreach ($resultado as $r) {
 									$opcPrec = $r['opcPrec'];
 									$opcID = $r['opcID'];
-									$i++;
 				    ?>   					       
-							<input type="hidden" name="opcional[<?php echo $i; ?>]" value="<?php echo $opcID; ?>">
-					<?  		} 
+							<input type="hidden" name="opcional[<?php echo $i; ?>][opcID]" value="<?php echo $opcID; ?>">
+					<?  		
+									$i++;
+								} 
 						    } 
 					    }?>	           	      
 							<input type="hidden" name="autoID" value="<?php echo $autoID; ?>">
@@ -145,6 +146,7 @@
 							<input type="hidden" name="resDesDir" id="resDesDir" value="">
 							<input type="hidden" name="resDesNum" id="resDesNum" value="">
 							<input type="hidden" name="resDesCom" id="resDesCom" value="">
+							<input type="hidden" name="resDevol"  id="resDevol"  value="">
 	         	      </div><!-- /.row -->
 	         	      <div class="row">
 		           	      <div class="col s12">
@@ -198,7 +200,12 @@
 						
 						<div class="dato_reserva hide" id="direccion_entrega">
 							<p><span>Donde entregar:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
-							<p>Miguel Claro 1457, Providencia</p>
+							<p id="direccion"></p>
+						</div><!-- /.datos_reserva -->
+						
+						<div class="dato_reserva hide" id="lugar_devolucion">
+							<p><span>Devolución:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
+							<p id="ladevolucion"></p>
 						</div><!-- /.datos_reserva -->
 						
 						<div class="dato_reserva">
@@ -207,12 +214,8 @@
 						</div><!-- /.datos_reserva -->
 						
 						<div class="dato_reserva">
-							<p><span>Fecha retiro:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
+							<p><span>Fecha devolución:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
 							<p id="fecha_hasta"></p>
-						</div><!-- /.datos_reserva -->
-						
-						<div class="dato_reserva hide" id="retiro_mismo_lugar">
-							<p><span>Retiro mismo lugar de entrega</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
 						</div><!-- /.datos_reserva -->
 						
 						<div class="divider"></div>

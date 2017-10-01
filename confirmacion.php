@@ -36,9 +36,19 @@
 			$resDesDir	= $r['resDesDir'];
 			$resDesNum	= $r['resDesNum'];
 			$resDesCom	= $r['resDesCom'];
+			$resDevol   = $r['resDevol'];
 			$resValTot	= $r['resValTot'];
 		} 
     } 
+    
+    if($resDevol==1){
+	    $devolucion = "Oficinas de Real Rent a Car";
+    }elseif($resDevol==2){
+	    $devolucion = "Misma dirección de entrega";
+    }elseif($resDevol==3){
+	    $devolucion = "Lugar a acordar telefónicamente";
+    }
+    
 ?>		
 	<main>	
 	 	<div class="barra_naranja">
@@ -67,7 +77,7 @@ Un ejecutivo te contactará a la brevedad.
 					<div class="row">
 						<div class="col l8 offset-l2 s12">
 							
-							<h5 class="titulo">Tu número de confirmación es <?php echo str_pad($resID, 5, '0', STR_PAD_LEFT); ; ?></h5>
+							<h5 class="titulo">Tu número de confirmación es <?php echo str_pad($resID, 5, '0', STR_PAD_LEFT) ; ?></h5>
 							
 							<div class="divider"></div>
 							
@@ -100,30 +110,25 @@ Un ejecutivo te contactará a la brevedad.
 							<div class="divider"></div>
 							
 							<h5 class="titulo">Detalle de la reserva:</h5>
-							
 							<div class="dato_reserva">
 								<p><span>Donde entregar:</span></p>
-								<p>Miguel Claro 1457, Providencia</p>
+								<p><?php echo $resDesDir; ?> <?php echo $resDesNum; ?>, <?php echo get_comuna($resDesCom); ?></p>
+							</div><!-- /.datos_reserva -->
+							
+							<div class="dato_reserva">
+								<p><span>Devolución: <?php echo $devolucion; ?>.</span></p>
 							</div><!-- /.datos_reserva -->
 							
 							<div class="dato_reserva">
 								<p><span>Fecha entrega:</span></p>
-								<p>26 Junio 2017</p>
+								<p><?php echo date("d-m-Y", strtotime($resFecIni)); ?> <?php echo $resHorIni; ?></p>
 							</div><!-- /.datos_reserva -->
 							
 							<div class="dato_reserva">
-								<p><span>Fecha retiro:</span></p>
-								<p>30 Junio 2017</p>
+								<p><span>Fecha devolución:</span></p>
+								<p><?php echo date("d-m-Y", strtotime($resFecFin)); ?> <?php echo $resHorFin; ?></p>
 							</div><!-- /.datos_reserva -->
 							
-							<div class="dato_reserva">
-								<p><span>Retiro mismo lugar de entrega.</span></p>
-							</div><!-- /.datos_reserva -->
-							
-							<div class="dato_reserva">
-								<p><span>Ítem Opcional:</span></p>
-								<p>GPS</p>
-							</div><!-- /.datos_reserva -->
 							
 							<div class="divider"></div>
 							

@@ -7,14 +7,13 @@ var dias  		= localStorage.getItem('dias');
 var direccion   = localStorage.getItem('direccion'); 
 var numero   	= localStorage.getItem('numero'); 
 var comuna   	= localStorage.getItem('comuna'); 
+var lacomuna   	= localStorage.getItem('lacomuna'); 
+var devolucion  = localStorage.getItem('devolucion'); 
 var auto   		= localStorage.getItem('auto'); 
 var opcional 	= new Array();
 var supertotal 	= 0;
 var opcional2 	= localStorage.getItem('opcional'); 
-
-
-
-
+var ladevolucion;
 
 console.log('opcional: '+ opcional2);
 if(opcional2){
@@ -24,9 +23,9 @@ if(opcional2){
 
 $('.button-collapse').sideNav();
 $('.parallax').parallax();
- $(document).ready(function() {
-    $('select').material_select();
-  });
+$('#comuna').material_select();
+$('#devolucion').material_select();
+
             
 
 $('.datepicker').pickadate({
@@ -108,6 +107,21 @@ $('#test5').change(function () {
 
 if(direccion!=''){
 	$('#direccion_entrega').removeClass('hide');	
+	$('#lugar_devolucion').removeClass('hide');	
+	
+	if(devolucion==1){
+		ladevolucion = "Oficinas de Real Rent a Car";
+	}else if(devolucion==2){
+		ladevolucion = "Misma dirección de entrega";
+	}else if(devolucion==3){
+		ladevolucion = "Lugar a acordar telefónicamente";
+	}
+	$('#direccion').html(direccion + ' ' + numero + ', '+lacomuna);
+	$('#ladevolucion').html(ladevolucion);	
+	$('#resDesDir').val(direccion);
+	$('#resDesNum').val(numero);
+	$('#resDesCom').val(comuna);
+	$('#resDevol').val(devolucion);
 }
 
 function formatNumber (num) {
@@ -175,6 +189,7 @@ $('#desde_elh').val(desde_elh);
 $('#hasta_el').val(hasta_el);
 $('#hasta_elh').val(hasta_elh);
 
+
 $('#formReserva').on("submit", function(e) {
   	e.preventDefault();
   
@@ -185,6 +200,8 @@ $('#formReserva').on("submit", function(e) {
   	direccion 	= $('#direccion').val();
   	numero 		= $('#numero').val();
   	comuna 		= $('#comuna').val();
+  	lacomuna 	= $("#comuna option[value='"+comuna+"']").text();
+  	devolucion 	= $('#devolucion').val();
   	
   	desde 		= desde_el + " " + desde_elh + ":00";
   	hasta 		= hasta_el + " " + hasta_elh + ":00";
@@ -218,6 +235,10 @@ $('#formReserva').on("submit", function(e) {
 	localStorage.setItem('direccion', direccion);
 	localStorage.setItem('numero', numero);
 	localStorage.setItem('comuna', comuna);
+	localStorage.setItem('lacomuna', lacomuna);
+	localStorage.setItem('devolucion', devolucion);
+
+
 
 	if(desde_el!=''){
 		if(hasta_el!=''){
@@ -360,10 +381,12 @@ $('#formFinal').on("submit", function(e) {
 				  	$('#progreso').addClass('hide');
 				  	return;
 			    }else{
+/*
 				    
 					var url = 'http://' + window.location.hostname;
 					cola = 'confirmacion.php?resID='+data;
 					window.location = cola; // redirect
+*/
 			    }   
 	    	}
 	    });
