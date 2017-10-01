@@ -94,7 +94,7 @@ session_start();
 							<?php } ?>
 						</div>
 						<div class="col-xs-6 postema nopadl nopadr">
-								<?php if($usuTipo==1){ ?><a href="formulario-flota.php?autoID=<?= $r['autoID']; ?>"><?php } ?><?= $r['autoDesc']; ?><?php if($usuTipo==1){ ?></a><?php } ?>
+								<?php if($usuTipo==1){ ?><a href="formulario-flota.php?autoID=<?= $r['autoID']; ?>"><?php } ?><?= $r['autoDesc']; ?><?php if($usuTipo==1){ ?></a><?php } ?> <span><?= $r['autoPatente']; ?></span>
 								<br><span><?= get_categoria($r['catID']); ?></span>
 							</div>
 						<div class="col-xs-3 text-right posvotos">

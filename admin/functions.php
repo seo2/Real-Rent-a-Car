@@ -119,6 +119,32 @@
 		return $temaDesc;
 		
 	}
+	
+	function get_tramo_desc($tramoID){
+		$db = MysqliDb::getInstance();
+		$tema = $db->rawQuery('select * from tramos_despacho where tramoID = '.$tramoID);
+		if($tema){
+			foreach ($tema as $t) {
+				$temaDesc  = $t["tramoNom"];
+			}
+		}
+
+		return $temaDesc;
+		
+	}
+	
+	function get_tramo_valor($tramoID){
+		$db = MysqliDb::getInstance();
+		$tema = $db->rawQuery('select * from tramos_despacho where tramoID = '.$tramoID);
+		if($tema){
+			foreach ($tema as $t) {
+				$temaDesc  = $t["tramoVal"];
+			}
+		}
+
+		return $temaDesc;
+		
+	}
 
 	function get_usercomuna($userID){
 		$db = MysqliDb::getInstance();

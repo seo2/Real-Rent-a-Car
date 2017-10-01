@@ -28,9 +28,11 @@
                  		<div class="divider"></div>
                  		
 	                	<ul>
-		                	<li><a href="" target="" class="selected">Reservar</a></li>
+		                	<li><a href="javascript:void(0);" target="" class="selected">Reservar</a></li>
+<!--
 		                	<li>/</li>
 		                	<li><a href="" target="" class="">Ver Reserva</a></li>
+-->
 	                	</ul>
                  	
 						<div class="divider"></div>
@@ -40,14 +42,25 @@
 					<div class="row">
 	                	<form class="col s12 reserva_home_form" id="formReserva">
 							<div class="row">
-		               	        <div class="input-field col s6">
+		               	        <div class="input-field col s6 m3">
 		               	          <input placeholder="02/01/2009" id="desde_el" type="date" class="validate datepicker" readonly="readonly" name="desde">
 		               	          <label for="desde_el">Desde el:</label>
 		               	        </div>
-		               	        <div class="input-field col s6">
+		               	        <div class="input-field col s6 m3">
+		               	          <input placeholder="00:00" id="desde_elh" type="time" class="validate timepicker" name="desdeh">
+<!-- 		               	          <label for="desde_elh">Hora:</label> -->
+		               	        </div>
+		               	        
+		               	        <div class="input-field col s6 m3">
 		               	          <input placeholder="24/09/2011" id="hasta_el" type="date" class="validate datepicker" readonly="readonly" name="hasta">
 		               	          <label for="hasta_el">Hasta el:</label>
 		               	        </div>
+		               	        <div class="input-field col s6 m3">
+		               	          <input placeholder="00:00" id="hasta_elh" type="time" class="validate timepicker" name="hastah">
+<!-- 		               	          <label for="hasta_elh">Hora:</label> -->
+		               	        </div>
+							</div>
+							<div class="row">
 		                 	    <div class="col l12">
 			                 	    <p>
 									    <input type="checkbox" id="test5" name="entrega" />
@@ -64,8 +77,19 @@
 										<label for="numero">Número:</label>
 			               	        </div>
 			               	        <div class="input-field col s12">
-										<input placeholder="Providencia" id="comuna" type="text" class="validate autocomplete" name="comuna">
-										<label for="comuna">Comuna:</label>
+										<select  id="comuna" name="comuna" class="validate">
+											<option value="" disabled selected>Seleccione comuna</option>
+											<?
+												$sql  = "select * from comuna where comuna_provincia_id = 131 order by comuna_nombre";
+											  	$resultado = $db->rawQuery($sql);
+												if($resultado){
+													foreach ($resultado as $r) {
+										    ?>  
+											<option value="<?= $r['comuna_id']; ?>"><?= $r['comuna_nombre']; ?></option>
+										    <?  	} 
+											    } ?>	
+										</select>
+										<label for="comuna" class="active">Comuna:</label>
 			               	        </div>
 			                 	    <div class="col l12">
 				                 	    <p>
@@ -105,7 +129,7 @@
 	          <i class="fa fa-car features_icono" aria-hidden="true"></i>
 	        	<div class="features_content">
 	           	<h5>Amplia gama de vehículos</h5>
-	          	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non augue id lorem placerat ultrices. Morbi sodales a urna at accumsan. Duis luctus lacus lacus, in pulvinar mi viverra ac.</p>
+	          	<p>Sujetos a disponibilidad.</p>
 	        	</div>
 	        </div><!-- /features -->
 	      </div><!-- /.col -->
@@ -113,8 +137,8 @@
 	        <div class="features">
 		        <i class="fa fa-credit-card features_icono" aria-hidden="true"></i>
 	        	<div class="features_content">
-	          	<h5>Convenios con todos los bancos.</h5>
-	          	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non augue id lorem placerat ultrices. Morbi sodales a urna at accumsan. Duis luctus lacus lacus, in pulvinar mi viverra ac.</p>
+	          	<h5>3 cuotas sin intereses</h5>
+	          	<p>Aceptamos todas las tarjetas bancarias.</p>
 	        	</div>
 	        </div><!-- /features -->
 	      </div><!-- /.col -->
@@ -123,7 +147,7 @@
 		        <i class="fa fa-map-marker features_icono" aria-hidden="true"></i>
 	        	<div class="features_content">
 	          	<h5>Llevamos el vehículo donde estés.</h5>
-	          	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non augue id lorem placerat ultrices. Morbi sodales a urna at accumsan. Duis luctus lacus lacus, in pulvinar mi viverra ac.</p>
+	          	<p>El costo varía según tramos.</p>
 	        	</div>
 	        </div><!-- /features -->
 				</div><!-- /.col -->
@@ -159,3 +183,23 @@
 	</div><!-- /.container -->
 
 <?php include('footer.php'); ?>
+<?php if($_GET['editar']!=1){ ?>
+	<script>
+		$(document).ready(function(){
+			localStorage.setItem('desde_el', '');
+		  	localStorage.setItem('hasta_el', '');
+			localStorage.setItem('desde_elh', '');
+		  	localStorage.setItem('hasta_elh', '');
+		  	localStorage.setItem('dias', ''); 	
+			localStorage.setItem('direccion', '');
+			localStorage.setItem('numero', '');
+			localStorage.setItem('comuna', '');
+			localStorage.setItem('auto', '');
+			localStorage.setItem('opcional', '');
+			$('#desde_el').val('');
+			$('#hasta_el').val('');
+			$('#desde_elh').val('');
+			$('#hasta_elh').val('');
+		});
+	</script>
+<?php } ?>

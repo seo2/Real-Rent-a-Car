@@ -49,6 +49,10 @@ global $usuID;
 					<br>
 					<a href="opcionales.php" class="btn btn-primary btn-lg btn-block">Opcionales</a>
 					<br>
+					<a href="tramos.php" class="btn btn-primary btn-lg btn-block">Tramos</a>
+					<br>
+					<a href="comunas.php" class="btn btn-primary btn-lg btn-block">Comunas</a>
+					<br>
 					<a href="usuarios.php" class="btn btn-primary btn-lg btn-block">Usuarios</a>
 				</div>
 			</div>

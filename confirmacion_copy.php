@@ -1,4 +1,25 @@
-<?php include('header.php'); ?>
+<?php
+	require_once("admin/functions.php");
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>REAL Rent a Car</title>
+  <link rel="icon" type="image/png" href="assets/img/icono.png" />
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="assets/fonts/font-awesome-4.6.3/css/font-awesome.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+  <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="assets/css/style.css?ver=2" type="text/css" rel="stylesheet" media="screen,projection"/>
+  
+</head>
+
+<body>
+
 <?php
 	$resID = $_GET['resID'];
 	$sql0  = "select * from reservas where resID = $resID";					
@@ -41,28 +62,8 @@
     } 
 ?>		
 	<main>	
-	 	<div class="barra_naranja">
-		 	<div class="container">
-			 	<h4>confirmación</h4>
-		 	</div><!-- /.container -->
-	 	</div><!-- /.barra_naranja -->
-	  
 		<div class="container">
-			
 			<div class="row">
-				<div class="section">
-					<div class="row">
-						<div class="col s12">
-							<div class="box_cars center">
-								Tu reserva ha sido confirmada. Hemos enviado un email a <?php echo $resMail; ?> con todos los datos.<!--
-<br>
-Un ejecutivo te contactará a la brevedad.
--->
-							</div>
-						</div><!-- /.col -->
-					</div><!-- /.row -->
-				</div><!-- /.section -->
-				
 				<div class="section">
 					<div class="row">
 						<div class="col l8 offset-l2 s12">
@@ -148,15 +149,7 @@ Un ejecutivo te contactará a la brevedad.
 				          </tr>
 				        </tbody>
 				      </table>
-							
-							<br>
-							
-							<div class="row">
-								<div class="col s6"><a href="" target="" class="btn_white left">Volver</a></div>
-								<div class="col s6">
-									<a href="" target="" class="btn_white right">Imprimir</a>
-								</div>
-							</div><!-- /.row -->
+		
 							
 						</div><!-- /.col -->
 					</div><!-- /.row -->
@@ -170,4 +163,5 @@ Un ejecutivo te contactará a la brevedad.
 		</div><!-- /.container -->
 	</main>
 
-<?php include('footer.php'); ?>
+  </body>
+</html>

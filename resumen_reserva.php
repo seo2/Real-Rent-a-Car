@@ -85,51 +85,84 @@
 			          </tr>
 			        </tbody>
 			      </table>
-					</div><!-- /.section -->
+		</div><!-- /.section -->
 					
-					<div class="section">
-						<div class="reserva_home grey lighten-3">
+		<div class="section">
+			<div class="reserva_home grey lighten-3">
 	           	<div class="row">
-	             	<form class="col s12 reserva_home_form grey lighten-3">
-		             	<div class="row">
-	                 	<div class="col l12 s12">
-									 		<h6 class="grey-text text-darken-1">Información del conductor</h6>
-	                 	</div><!-- /.col -->
-	               	</div><!-- /.row -->
-		             	
-	         	      <div class="row">
-	         	        <div class="input-field col s6">
-	         	          <input placeholder="Robinson" id="nombre" type="text" class="validate">
-	         	          <label for="nombre" class="grey-text text-darken-1">Nombre:</label>
-	         	        </div>
-	         	        <div class="input-field col s6">
-	         	          <input placeholder="Acuna" id="apellido" type="text" class="validate">
-	         	          <label for="apellido" class="grey-text text-darken-1">Apellido:</label>
-	         	        </div>
-					 					<div class="input-field col s12">
-	         	          <input placeholder="robinsonacuna@gmail.com" id="comuna" type="text" class="validate">
-	         	          <label for="comuna" class="grey-text text-darken-1">Email:</label>
-	         	        </div>
-	           	      <div class="col l12 qwerty">
-	             	      <p>
-						      <input type="checkbox" id="test5"/>
-						      <label for="test5" class="grey-text text-darken-1">Recibir publicidad vía Email.</label>
-						  </p>
-	           	      </div>
+	             	<form class="col s12 reserva_home_form grey lighten-3" id="formFinal" action="ajax/graba-arriendo.php">
+		            	<div class="row">
+	                		<div class="col l12 s12">
+								<h6 class="grey-text text-darken-1">Información del conductor</h6>
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+						<div class="row">
+		        	        <div class="input-field col s6">
+								<input placeholder="Robinson" id="nombre" type="text" class="validate" name="nombre" required>
+								<label for="nombre" class="grey-text text-darken-1">Nombre:</label>
+		        	        </div>
+		        	        <div class="input-field col s6">
+								<input placeholder="Acuna" id="apellido" type="text" class="validate" name="apellido" required>
+								<label for="apellido" class="grey-text text-darken-1">Apellido:</label>
+		        	        </div>
+							<div class="input-field col s6">
+								<input placeholder="minombre@mimail.com" id="mail" type="email" name="mail" class="validate" required>
+								<label for="comuna" class="grey-text text-darken-1">Email:</label>
+		        	        </div>
+							<div class="input-field col s6">
+								<input placeholder="+56 9 9999 9999" id="fono" type="tel" name="fono" class="validate" required>
+								<label for="comuna" class="grey-text text-darken-1">Teléfono:</label>
+		        	        </div>
+			        	    <div class="col l12 qwerty">
+			            	    <p>
+									<input type="checkbox" id="test5" name="recibir" value="1"/>
+									<label for="test5" class="grey-text text-darken-1">Recibir publicidad vía Email.</label>
+								</p>
+			        	    </div>
+
+					<?  if($_GET['opcionales']){
+							$opcionales = $_GET['opcionales'];
+							$sql  		= "select * from opcionales where opcID in ($opcionales) order by opcDesc";
+						  	$resultado 	= $db->rawQuery($sql);
+						  	$i = 0;
+							if($resultado){
+								foreach ($resultado as $r) {
+									$opcPrec = $r['opcPrec'];
+									$opcID = $r['opcID'];
+									$i++;
+				    ?>   					       
+							<input type="hidden" name="opcional[<?php echo $i; ?>]" value="<?php echo $opcID; ?>">
+					<?  		} 
+						    } 
+					    }?>	           	      
+							<input type="hidden" name="autoID" value="<?php echo $autoID; ?>">
+							<input type="hidden" name="total"  id="total"  value="">
+							<input type="hidden" name="fecIni" id="fecIni" value="">
+							<input type="hidden" name="horIni" id="horIni" value="">
+							<input type="hidden" name="fecFin" id="fecFin" value="">
+							<input type="hidden" name="horFin" id="horFin" value="">
+							<input type="hidden" name="dias"   id="dias"   value="">
+							<input type="hidden" name="resDesDir" id="resDesDir" value="">
+							<input type="hidden" name="resDesNum" id="resDesNum" value="">
+							<input type="hidden" name="resDesCom" id="resDesCom" value="">
 	         	      </div><!-- /.row -->
 	         	      <div class="row">
-	           	      <div class="col s12">
-	             	      <button class="btn left z-depth-0" type="submit" name="action">Ingresar</button>
-	           	      </div><!-- .col -->
+		           	      <div class="col s12">
+		             	      <button class="btn left z-depth-0" type="submit" name="action" id="btnArrendar">Arrendar</button>
+		           	      </div><!-- .col -->
 	         	      </div><!-- /.row -->
 	         	    </form>
+	           	      
+					<div class="progress hide" id="progreso">
+				    	<div class="indeterminate"></div>
+					</div>
 	           	</div><!-- /.row -->
-	         	</div><!-- /.reserva_home -->
-	         	
-	         	<div class="row">
+	        </div><!-- /.reserva_home -->
+	        	
+	        	<div class="row">
 							<div class="col s6"><a href="opcionales.php?autoID=<?php echo $autoID; ?>" target="" class="btn_white left">Volver</a></div>
 							<div class="col s6">
-								<a href="" target="" class="btn_white right">Arrendar</a>
+								<a href="javascript:void(0);" class="btn_white right btn-cancel">Cancelar</a>
 							</div>
 						</div><!-- /.row -->
 					</div><!-- /.section -->
@@ -145,7 +178,7 @@
 						<div class="item center">
 							<img src="admin/ajax/uploads/<?php echo $autoFoto; ?>" width="210"/>
 							<h5><?php echo get_segmento(get_segmento_cat($catID)); ?></h5>
-							<p><?php echo $rautoDesc; ?></p>
+							<p><?php echo $rautoDesc; ?> <small>o similar</small></p>
 						  <div class="features_car">
 								<span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="<?php echo $catPas; ?> Pasajeros"><i class="fa fa-users" aria-hidden="true"></i> <?php echo $catPas; ?></span> /
 	<!-- 											<i class="fa fa-suitcase" aria-hidden="true"></i> 4 / -->
@@ -170,12 +203,12 @@
 						
 						<div class="dato_reserva">
 							<p><span>Fecha entrega:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
-							<p id="fecha_desde">26 Junio 2017</p>
+							<p id="fecha_desde"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span></p>
 						</div><!-- /.datos_reserva -->
 						
 						<div class="dato_reserva">
 							<p><span>Fecha retiro:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
-							<p id="fecha_hasta">30 Junio 2017</p>
+							<p id="fecha_hasta"></p>
 						</div><!-- /.datos_reserva -->
 						
 						<div class="dato_reserva hide" id="retiro_mismo_lugar">
@@ -187,8 +220,19 @@
 						<br>
 						
 						<div class="dato_reserva">
-							<p><span>Ítem Opcional:</span><a href="opcionales.php?autoID=<?php echo $autoID; ?>" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
-							<p>GPS</p>
+							<p><span>Opcionales:</span><a href="opcionales.php?autoID=<?php echo $autoID; ?>" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
+						<?  if($_GET['opcionales']){
+								$opcionales = $_GET['opcionales'];
+								$sql  = "select * from opcionales where opcID in ($opcionales) order by opcDesc";
+							  	$resultado = $db->rawQuery($sql);
+								if($resultado){
+									foreach ($resultado as $r) {
+										$opcPrec = $r['opcPrec'];
+					    ?>   					          			
+							<p><?php echo $r['opcDesc']; ?></p>
+						<?  		} 
+							    } 
+						    }?>			
 						</div><!-- /.datos_reserva -->
 						
 						<div class="box_grey">

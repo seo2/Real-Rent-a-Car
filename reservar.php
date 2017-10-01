@@ -34,7 +34,7 @@
 							<p>Los valores incluyen IVA</p>
 						</div><!-- /.box_txt -->
 <?php
-					$sql0  = "select * from autos_flota where autoEst = 0 and autoFoto != '' order by catID";					
+					$sql0  = "select * from autos_flota where autoEst = 0 and autoFoto != '' group by catID order by catID";					
 				  	$formatos = $db->rawQuery($sql0);
 					if($formatos){
 						foreach ($formatos as $r) {	
@@ -62,10 +62,11 @@
 										} 
 										$catPas = $c['catPas'];
 										$catPrec = $c['catPrec'];
+										$catDesc = $c['catDesc'];
 									} 
 ?>	
-										<h5><?php echo get_segmento(get_segmento_cat($r['catID'])); ?></h5>
-										<p><?php echo $r['autoDesc']; ?></p>
+										<h5><?php echo get_segmento(get_segmento_cat($r['catID'])); ?> <small>Categoría <?php echo $catDesc; ?></small></h5>
+										<p><?php echo $r['autoDesc']; ?> <small>o similar</small></p>
 										<div class="features_car">
 											<span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="<?php echo $catPas; ?> Pasajeros"><i class="fa fa-users" aria-hidden="true"></i> <?php echo $catPas; ?></span> /
 <!-- 											<i class="fa fa-suitcase" aria-hidden="true"></i> 4 / -->
@@ -74,7 +75,7 @@
 											
 										</div><!-- /.features_car -->
 									  <p class="grey-text">$<?php echo number_format($catPrec,0,',','.'); ?> por día, total por <span class="dias" data-valor="<?php echo $catPrec; ?>"></span></p>
-									  <a href="javascript:void(0);" target="" class="btn_orange btn-elegir" data-auto="<?php echo $r['autoID']; ?>" >Elegir</a>
+									  <a href="javascript:void(0);" target="" class="btn_orange btn-elegir btn-auto" data-auto="<?php echo $r['autoID']; ?>" >Elegir</a>
 									</div>
 								</div><!-- /.col -->
 							</div><!-- /.row -->
@@ -104,12 +105,12 @@
 						
 						<div class="dato_reserva">
 							<p><span>Fecha entrega:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
-							<p id="fecha_desde">26 Junio 2017</p>
+							<p id="fecha_desde"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span></p>
 						</div><!-- /.datos_reserva -->
 						
 						<div class="dato_reserva">
 							<p><span>Fecha retiro:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
-							<p id="fecha_hasta">30 Junio 2017</p>
+							<p id="fecha_hasta"></p>
 						</div><!-- /.datos_reserva -->
 						
 						<div class="dato_reserva hide" id="retiro_mismo_lugar">

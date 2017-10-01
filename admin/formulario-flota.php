@@ -59,7 +59,7 @@ session_start();
 						<form action="ajax/graba-flota.php" method="post" accept-charset="utf-8" id="formFlota">
 							<fieldset>
 								<div class="form-group">
-									<select class="form-control" name="catID" required id="catID">
+									<select class="form-control" name="catID" required>
 										<option value="">Seleccione Categoría</option>
 										<?
 										$tema = $db->rawQuery('select * from autos_categorias order by catDesc');
@@ -90,7 +90,7 @@ session_start();
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label class="ptdCan">Motor:</label>
-											<input type="text" class="form-control" id="autoPatente" placeholder="2.0" name="autoCilin" value="<?= $autoCilin; ?>" required >
+											<input type="text" class="form-control" id="autoCilin" placeholder="2.0" name="autoCilin" value="<?= $autoCilin; ?>" >
 										</div>
 
 									</div>

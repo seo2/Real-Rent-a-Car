@@ -10,7 +10,7 @@
 	<div class="section">	
 		<div class="row">
 <?php
-			$sql0  = "select * from autos_flota where autoEst = 0 and autoFoto != '' order by catID";					
+			$sql0  = "select * from autos_flota where autoEst = 0 and autoFoto != '' group by catID order by catID";					
 		  	$formatos = $db->rawQuery($sql0);
 			if($formatos){
 				foreach ($formatos as $r) {	
@@ -42,7 +42,7 @@
 <!-- 											<i class="fa fa-suitcase" aria-hidden="true"></i> 4 / -->
 					<span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="<?php echo $caja2; ?>"><i class="fa fa-sitemap" aria-hidden="true"></i> <?php echo $caja; ?></span>
 				  </div><!-- /.features_car -->
-				  <a href="" target="" class="btn_orange">Reservar</a>
+				  <a href="index.php" target="" class="btn_orange">Reservar</a>
 				</div>
 			</div><!-- /.col -->
 <?php 				

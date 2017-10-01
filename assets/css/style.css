@@ -303,12 +303,16 @@ nav i.material-icons {
 
 /* Text inputs */
 .reserva_home_form input:not([type]),
-.reserva_home_form input[type=text]:not(.browser-default) {
+.reserva_home_form input[type=tel]:not(.browser-default),
+.reserva_home_form input[type=date]:not(.browser-default),
+.reserva_home_form input[type=time]:not(.browser-default),
+.reserva_home_form input[type=text]:not(.browser-default),
+.reserva_home_form input[type=email]:not(.browser-default)  {
   background-color: #ffffff;
   border-bottom: 1px solid transparent;
   -webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
   color: #343233;
   text-indent: 10px;
 }

@@ -56,7 +56,7 @@
 					<div class="row">
 						<div class="col s6"><a href="javascript:void(0);" target="" class="btn_white left">Cancelar</a></div>
 						<div class="col s6">
-							<a href="resumen_reserva.php?autoID=<?php echo $autoID; ?>" target="" class="btn_white right" id="btn_continuar">Continuar</a>
+							<a href="resumen_reserva.php?autoID=<?php echo $autoID; ?>" target="" class="btn_orange right" id="btn_continuar">Continuar</a>
 							<a href="reservar.php" target="" class="btn_white right" style="margin-right: 10px;">Volver</a>
 						</div>
 					</div><!-- /.row -->
@@ -93,7 +93,7 @@
 						<div class="item center">
 							<img src="admin/ajax/uploads/<?php echo $r['autoFoto']; ?>" width="210"/>
 							<h5><?php echo get_segmento(get_segmento_cat($r['catID'])); ?></h5>
-							<p><?php echo $r['autoDesc']; ?></p>
+							<p><?php echo $r['autoDesc']; ?> <small>o similar</small></p>
 						  <div class="features_car">
 								<span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="<?php echo $catPas; ?> Pasajeros"><i class="fa fa-users" aria-hidden="true"></i> <?php echo $catPas; ?></span> /
 	<!-- 											<i class="fa fa-suitcase" aria-hidden="true"></i> 4 / -->
@@ -121,12 +121,12 @@
 						
 						<div class="dato_reserva">
 							<p><span>Fecha entrega:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
-							<p id="fecha_desde">26 Junio 2017</p>
+							<p id="fecha_desde"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span></p>
 						</div><!-- /.datos_reserva -->
 						
 						<div class="dato_reserva">
 							<p><span>Fecha retiro:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
-							<p id="fecha_hasta">30 Junio 2017</p>
+							<p id="fecha_hasta"></p>
 						</div><!-- /.datos_reserva -->
 						
 						<div class="dato_reserva hide" id="retiro_mismo_lugar">
@@ -134,7 +134,7 @@
 						</div><!-- /.datos_reserva -->
 						
 						<div class="box_grey">
-							<p>Total: $<span class="supertotal"></span></p>
+							<p>Total: $<span class="supertotal1"></span></p>
 						</div><!-- /.box_txt -->
 						
 					</div><!-- /.box_side -->
