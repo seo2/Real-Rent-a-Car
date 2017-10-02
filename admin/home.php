@@ -44,7 +44,7 @@ if($_SESSION['todos']['Logged']){
 
 
 
-					<a href="pedidos-tipo_formatos.php" class="btn btn-primary btn-lg btn-block"><?php echo $boton1; ?> <i class="fa fa-car" aria-hidden="true"></i> Reservas</a>
+					<a href="reservas.php" class="btn btn-primary btn-lg btn-block"><i class="fa fa-car" aria-hidden="true"></i> Reservas</a>
 					<br>
 
 					<a href="maestros.php" class="btn btn-primary btn-lg btn-block"><i class="fa fa-bar-chart" aria-hidden="true"></i> Informes</a>

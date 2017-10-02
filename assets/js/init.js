@@ -160,7 +160,7 @@ $('.dias2').each(function(i, obj) {
 	$("#fecFin").val(hasta_el);
 	$("#horFin").val(hasta_elh);
 	$("#dias").val(dias);
-	$("#total").val(total);
+	$("#total").val(supertotal);
 
 });
 
@@ -380,13 +380,10 @@ $('#formFinal').on("submit", function(e) {
 				  	$('#btnArrendar').removeClass('hide');
 				  	$('#progreso').addClass('hide');
 				  	return;
-			    }else{
-/*
-				    
+			    }else{				    
 					var url = 'http://' + window.location.hostname;
 					cola = 'confirmacion.php?resID='+data;
 					window.location = cola; // redirect
-*/
 			    }   
 	    	}
 	    });

@@ -49,7 +49,41 @@
 	    $devolucion = "Lugar a acordar telefónicamente";
     }
     
-?>		
+?>	
+<?php
+	$sql0  = "select * from autos_flota where autoID = $resAuto";					
+  	$formatos = $db->rawQuery($sql0);
+	if($formatos){
+		foreach ($formatos as $r) {	
+			$catID = $r['catID'];
+			$sql  = "select * from autos_categorias where catID = $catID";
+		  	$resultado = $db->rawQuery($sql);
+			if($resultado){
+				foreach ($resultado as $c) {
+					if($c['catCaja']==0){ 
+						$caja = 'M';	
+						$caja2 = 'Caja Manual';					
+					}else{ 
+						$caja = 'A';
+						$caja2 = 'Caja Automática';	
+					}
+				} 
+				$catPas = $c['catPas'];
+				$catPrec = $c['catPrec'];
+			} 
+			$autoFoto 	= $r['autoFoto'];
+			$rautoDesc	= $r['autoDesc'];
+		} 
+    } 
+    if($resDias>1){
+	    $dias = $resDias.' días';
+    }else{
+	    $dias = $resDias.' día';
+    }
+    $autoTot = $catPrec * $resDias;
+    
+?>	
+	
 	<main>	
 	 	<div class="barra_naranja">
 		 	<div class="container">
@@ -95,14 +129,13 @@ Un ejecutivo te contactará a la brevedad.
 							<h5 class="titulo">Tu vehículo:</h5>
 							
 							<div class="item center">
-								<img src="assets/img/autos/nissan_march_ss_16.jpg" width="210"/>
-								<h5>Nissan</h5>
-								<p>March SS 1.6</p>
-								  <div class="features_car">
-									  <i class="fa fa-users" aria-hidden="true"></i> 4 /
-									  <i class="fa fa-suitcase" aria-hidden="true"></i> 4 /
-									  <i class="fa fa-sitemap" aria-hidden="true"></i> M
-								  </div><!-- /.features_car -->
+								<img src="admin/ajax/uploads/<?php echo $autoFoto; ?>" width="210"/>
+								<h5><?php echo get_segmento(get_segmento_cat($catID)); ?></h5>
+								<p><?php echo $rautoDesc; ?> <small>o similar</small></p>
+								<div class="features_car">
+									<span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="<?php echo $catPas; ?> Pasajeros"><i class="fa fa-users" aria-hidden="true"></i> <?php echo $catPas; ?></span> /
+									<span class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="<?php echo $caja2; ?>"><i class="fa fa-sitemap" aria-hidden="true"></i> <?php echo $caja; ?></span>
+								</div><!-- /.features_car -->
 							</div><!-- /.item -->
 							
 							<br>
@@ -110,6 +143,7 @@ Un ejecutivo te contactará a la brevedad.
 							<div class="divider"></div>
 							
 							<h5 class="titulo">Detalle de la reserva:</h5>
+								<?php if($resDesCom){ ?>
 							<div class="dato_reserva">
 								<p><span>Donde entregar:</span></p>
 								<p><?php echo $resDesDir; ?> <?php echo $resDesNum; ?>, <?php echo get_comuna($resDesCom); ?></p>
@@ -118,6 +152,11 @@ Un ejecutivo te contactará a la brevedad.
 							<div class="dato_reserva">
 								<p><span>Devolución: <?php echo $devolucion; ?>.</span></p>
 							</div><!-- /.datos_reserva -->
+							<?php }else{ ?>
+							<div class="dato_reserva">
+								<p><span>Retirar vehículo en Oficinas de Real Rent a Car.</span> Rinconada 8926, Vitacura</p>
+							</div><!-- /.datos_reserva -->
+							<?php } ?>
 							
 							<div class="dato_reserva">
 								<p><span>Fecha entrega:</span></p>
@@ -138,30 +177,59 @@ Un ejecutivo te contactará a la brevedad.
 				        <tbody>
 				          <tr>
 				            <td>Arriendo Auto</td>
-				            <td>Nissan March SS 1.6<br>5 días / $22.990 por día</td>
-				            <td>$114.950</td>
+				            <td><?php echo $rautoDesc; ?><br><span class="los_dias"><?php echo $dias; ?></span> / $<?php echo number_format($catPrec,0,',','.'); ?> por día</td>
+				            <td class="right-align">$<?php echo number_format($autoTot,0,',','.'); ?></td>
 				          </tr>
-				          <tr>
-				            <td>Ítems Adicionales</td>
-				            <td>GPS<br>5 días / $5.990 por día</td>
-				            <td>$29.950</td>
+						<?
+							
+							$sql1  = "select * from reservas_opcionales where resID = $resID";
+						  	$opcionales = $db->rawQuery($sql1);
+							if($opcionales){
+								foreach ($opcionales as $o) {	
+									$opcID = $o['opcID'];						
+									$sql  = "select * from opcionales where opcID = $opcID";
+								  	$resultado = $db->rawQuery($sql);
+									if($resultado){
+										foreach ($resultado as $r) {
+											if($r['opcEst']==1){ 
+												$estado = 'off';
+												$estDesc = 'Inactivo';						
+											}else{ 
+												$estado = 'on';
+												$estDesc = 'Activo';
+											} 
+											$opcPrec = $r['opcPrec'];
+											$opcTot  = $opcPrec * $resDias;
+					    ?>   				
+				          <tr>				          
+						            <td><?php echo $r['opcDesc']; ?></td>
+						            <td><span class="los_dias"><?php echo $dias; ?></span> / $<?php echo number_format($opcPrec,0,',','.'); ?> por día</td>
+						            <td class="right-align">$<?php echo number_format($opcTot,0,',','.'); ?></td>	
 				          </tr>
+				        <?  		
+									$i++;
+									} 
+								} 
+						    } 
+					    }?>	  
 				          <tr>
 				            <td>TOTAL</td>
 				            <td></td>
-				            <td>$140.900</td>
+				            <td class="right-align"><strong>$<?php echo number_format($resValTot,0,',','.'); ?></strong></td>
 				          </tr>
 				        </tbody>
 				      </table>
 							
 							<br>
 							
+<!--
 							<div class="row">
 								<div class="col s6"><a href="" target="" class="btn_white left">Volver</a></div>
 								<div class="col s6">
 									<a href="" target="" class="btn_white right">Imprimir</a>
 								</div>
-							</div><!-- /.row -->
+							</div>
+--><!-- /.row -->
 							
 						</div><!-- /.col -->
 					</div><!-- /.row -->
