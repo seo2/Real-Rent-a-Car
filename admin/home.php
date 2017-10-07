@@ -47,16 +47,16 @@ if($_SESSION['todos']['Logged']){
 					<a href="reservas.php" class="btn btn-primary btn-lg btn-block"><i class="fa fa-car" aria-hidden="true"></i> Reservas</a>
 					<br>
 
-					<a href="maestros.php" class="btn btn-primary btn-lg btn-block"><i class="fa fa-bar-chart" aria-hidden="true"></i> Informes</a>
+					<a href="formulario-reservas.php" class="btn btn-primary btn-lg btn-block"><i class="fa fa-cart-plus" aria-hidden="true"></i> Hacer Reserva</a>
 					<br>
 					
 					<hr>
 
-					<a href="maestros.php" class="btn btn-primary btn-lg btn-block">Maestros</a>
+					<a href="maestros.php" class="btn btn-primary btn-lg btn-block"><i class="fa fa-cogs" aria-hidden="true"></i> Maestros</a>
 					<br>
 					
 
-					<a href="formulario-cambiar-password.php" class="btn btn-primary btn-lg btn-block">Cambiar Contraseña</a>
+					<a href="formulario-cambiar-password.php" class="btn btn-primary btn-lg btn-block"><i class="fa fa-key" aria-hidden="true"></i> Cambiar Contraseña</a>
 					<br>
 					<a href="javascript:void();" class="btn btn-primary btn-lg btn-block" id="logoutBtn"><i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a>
 				</div>

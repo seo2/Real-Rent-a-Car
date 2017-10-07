@@ -122,6 +122,17 @@ if(direccion!=''){
 	$('#resDesNum').val(numero);
 	$('#resDesCom').val(comuna);
 	$('#resDevol').val(devolucion);
+	
+	$('#test5').prop('checked', true);
+	$('#entrega').show();	
+	$('#direccion').val(direccion);
+	$('#numero').val(numero);
+	$('#comuna').val(comuna);
+	$('#comuna').material_select();
+	$('#devolucion').val(devolucion);
+	$('#devolucion').material_select();
+	console.log(devolucion);
+	
 }
 
 function formatNumber (num) {
@@ -149,7 +160,11 @@ $('.dias').each(function(i, obj) {
 
 $('.dias2').each(function(i, obj) {
     valor = $(this).data('valor');
-    total = valor * dias;
+    if($(this).data('dias')==0){
+    	total = valor * dias;
+    }else{
+    	total = valor;
+    }
     frase =  formatNumber(total);
     $(this).html(frase);
     supertotal = supertotal + total;
@@ -190,8 +205,11 @@ $('#hasta_el').val(hasta_el);
 $('#hasta_elh').val(hasta_elh);
 
 
+
 $('#formReserva').on("submit", function(e) {
   	e.preventDefault();
+  
+  	paso		= $('#btnForm').data('paso');
   
   	desde_el 	= $('#desde_el').val();
   	desde_elh 	= $('#desde_elh').val();
@@ -294,15 +312,43 @@ $('#formReserva').on("submit", function(e) {
   
   	if(error==0){  
 	  	$('#progreso').removeClass('hide');
-	  	window.location.href = "reservar.php";
+	  	if(comuna){
+		  	cola = '&comID='+comuna+'&dev='+devolucion;
+	  	}else{
+		  	cola = '';
+	  	}
+	  	if(paso<=2){
+	  		window.location.href = "reservar.php?ini="+desde_el+"&fin="+hasta_el+cola;
+	  	}else if(paso==3){
+	  		window.location.href = "opcionales.php?ini="+desde_el+"&fin="+hasta_el+"&autoID="+auto+cola;
+	  	}else if(paso==4){
+		  	if(opcional){		  	
+		  		window.location.href = "resumen_reserva.php?ini="+desde_el+"&fin="+hasta_el+"&autoID="+auto+"&opcionales="+opcional+cola;
+		  	}else{
+	  			window.location.href = "resumen_reserva.php?ini="+desde_el+"&fin="+hasta_el+"&autoID="+auto+cola;
+		  	}
+	  	}
   	}
 });
 
 $('.btn-elegir').on('click', function(){
 	auto = $(this).data('auto');
 	localStorage.setItem('auto', auto);
-	window.location.href = "opcionales.php?autoID="+auto;
+	  	if(comuna){
+		  	cola = '&comID='+comuna+'&dev='+devolucion;
+	  	}else{
+		  	cola = '';
+	  	}
+	window.location.href = "opcionales.php?ini="+desde_el+"&fin="+hasta_el+"&autoID="+auto+cola;
 });
+
+
+  	if(comuna){
+		  	cola = '&comID='+comuna+'&dev='+devolucion;
+  	}else{
+	  	cola = '';
+  	}
+	$('#btn_continuar').attr('href',"resumen_reserva.php?ini="+desde_el+"&fin="+hasta_el+"&autoID="+auto+cola);
 
 $('.btn-opcional').on('click', function(){
 	idopcional = $(this).data('id');
@@ -316,11 +362,19 @@ $('.btn-opcional').on('click', function(){
 		$(this).html('Quitar').addClass('btn_white');
 		opcional.push(idopcional);
 	}	
-	$('#btn_continuar').attr('href',"resumen_reserva.php?autoID="+auto+"&opcionales="+opcional);
+  	if(comuna){
+	  	cola = '&comID='+comuna;
+  	}else{
+	  	cola = '';
+  	}
+	$('#btn_continuar').attr('href',"resumen_reserva.php?ini="+desde_el+"&fin="+hasta_el+"&autoID="+auto+"&opcionales="+opcional+cola);
 	localStorage.setItem('opcional', opcional);
 	console.log(opcional);
 });
 //localStorage.removeItem('opcional');
+
+
+
 
 $('.btn-cancel').on('click',function(){
 	
@@ -389,5 +443,78 @@ $('#formFinal').on("submit", function(e) {
 	    });
 	}
 });
+
+$('#formContacto').on("submit", function(e) {
+  	e.preventDefault();
+
+
+  	nombre 		= $('#nombre').val();
+  	apellido 	= $('#apellido').val();
+  	mail 		= $('#mail').val();
+  	fono 		= $('#fono').val();
+  	mensaje		= $('#mensaje').val();
+  	
+  	error 		= 0;
+
+	if(nombre!=''){
+		if(apellido!=''){
+			if(mail!=''){
+				if(fono!=''){
+					if(mensaje!=''){
+					
+					}else{
+						Materialize.toast('Debe ingresar un mensaje', 4000) // 4000 is the duration of the toast
+						error = 1;
+					  	return;
+					}					
+				}else{
+					Materialize.toast('Debe ingresar su número de teléfono', 4000) // 4000 is the duration of the toast
+					error = 1;
+				  	return;
+				}				
+			}else{
+				Materialize.toast('Debe ingresar su correo electrónico', 4000) // 4000 is the duration of the toast
+				error = 1;
+			  	return;
+			}
+		}else{
+			Materialize.toast('Debe ingresar su apellido', 4000) // 4000 is the duration of the toast
+			error = 1;
+		  	return;
+		}		
+	}else{
+		Materialize.toast('Debe ingresar su nombre', 4000) // 4000 is the duration of the toast
+		error = 1;
+	  	return;
+	}
+
+  	
+  	if(error==0){  
+	  	$('#btnEnviar').addClass('hide');
+	  	$('#progreso').removeClass('hide');
+
+	    $.ajax({
+	    	url:  $('#formContacto').attr('action'),
+			type: "POST",
+            data: $('#formContacto').serialize(),
+            success: function(data) {		   
+			    console.log(data);  
+			    if(data=='error'){
+				    Materialize.toast('Ha ocurrido un error, por favor vuelva a intentarlo.', 4000) // 4000 is the duration of the toast
+					error = 1;
+				  	$('#btnEnviar').removeClass('hide');
+				  	$('#progreso').addClass('hide');
+				  	return;
+			    }else{				    
+				  	$('#btnEnviar').removeClass('hide');
+				  	$('#progreso').addClass('hide');
+				  	$('#formContacto')[0].reset();
+					Materialize.toast('Gracias, su mensaje ha sido enviado', 4000) // 4000 is the duration of the toast;
+			    }   
+	    	}
+	    });
+	}
+});
+
 
 

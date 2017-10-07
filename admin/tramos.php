@@ -44,13 +44,13 @@ if($_SESSION['todos']['Logged']){
 			<div class="col-xs-12 col-md-6 col-md-offset-3 posicion">
 				<div class="row">
 					<div class="col-xs-9 postema">
-						<a href="formulario-tramos.php?catID=<?= $r['tramoID']; ?>"><?= $r['tramoNom']; ?></a>
+						<a href="formulario-tramos.php?tramoID=<?= $r['tramoID']; ?>"><?= $r['tramoNom']; ?></a>
 						<br><span>
 						<i class="fa fa-usd" aria-hidden="true"></i> <?= number_format($r['tramoVal'],0,',','.'); ?>
 						</span>
 					</div>
 					<div class="col-xs-3 text-right posvotos">
-						<a href="formulario-tramos.php?catID=<?= $r['tramoID']; ?>" class="btn btn-default"><i class="fa fa-list"></i> <span class="hidden-xs">Editar</span></a> 
+						<a href="formulario-tramos.php?tramoID=<?= $r['tramoID']; ?>" class="btn btn-default"><i class="fa fa-list"></i> <span class="hidden-xs">Editar</span></a> 
 					</div>
 				</div>
 

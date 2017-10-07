@@ -180,6 +180,35 @@ Un ejecutivo te contactará a la brevedad.
 				            <td><?php echo $rautoDesc; ?><br><span class="los_dias"><?php echo $dias; ?></span> / $<?php echo number_format($catPrec,0,',','.'); ?> por día</td>
 				            <td class="right-align">$<?php echo number_format($autoTot,0,',','.'); ?></td>
 				          </tr>
+		<?php  
+			if($resDesCom){
+				$sql  = "select * from comuna where comuna_id = $resDesCom";
+			  	$resultado = $db->rawQuery($sql);
+				if($resultado){
+					foreach ($resultado as $r) {
+						$tramoPrec = get_tramo_valor($r['comuna_tramo']);
+						$comuna_nombre = $r['comuna_nombre'];
+	    ?>			          
+			          <tr class="entrega">
+			            <td>Entrega a Domicilio</td>
+			            <td>Comuna <span class="comuna"><?php echo $comuna_nombre; ?></span></td>
+			            <td class="right-align">$<span class="dias2" data-dias="1" data-valor="<?php echo $tramoPrec; ?>"></span></td>
+			          </tr>
+		<?php  			
+						if($resDevol==2){ ?>
+			          <tr class="entrega">
+			            <td>Devolución</td>
+			            <td>Comuna <span class="comuna"><?php echo $comuna_nombre; ?></span></td>
+			            <td class="right-align">$<span class="dias2" data-dias="1" data-valor="<?php echo $tramoPrec; ?>"></span></td>
+			          </tr>
+		<?php	
+						}
+					
+					} 
+			    } 
+		    }
+		?>
+				          
 						<?
 							
 							$sql1  = "select * from reservas_opcionales where resID = $resID";
@@ -244,3 +273,17 @@ Un ejecutivo te contactará a la brevedad.
 	</main>
 
 <?php include('footer.php'); ?>
+	<script>
+		$(document).ready(function(){
+			localStorage.setItem('desde_el', '');
+		  	localStorage.setItem('hasta_el', '');
+			localStorage.setItem('desde_elh', '');
+		  	localStorage.setItem('hasta_elh', '');
+		  	localStorage.setItem('dias', ''); 	
+			localStorage.setItem('direccion', '');
+			localStorage.setItem('numero', '');
+			localStorage.setItem('comuna', '');
+			localStorage.setItem('auto', '');
+			localStorage.setItem('opcional', '');	
+		});
+	</script>

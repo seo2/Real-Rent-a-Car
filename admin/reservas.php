@@ -88,7 +88,9 @@ session_start();
 											  <th>Nombre</th>
 											  <th>Mail</th>
 											  <th>Fono</th>
+											  <th>Cat.</th>
 											  <th>Auto</th>
+											  <th>Patente</th>
 											  <th>Desde</th>
 											  <th>Hasta</th>
 											  <th>Días</th>
@@ -106,26 +108,44 @@ session_start();
 					foreach ($reservas_sql as $f) {
 ?>
 										<tr class="formato">
-											<td><?php echo $f['resID']; ?></td>
+											<td><a href="formulario-reservas.php?resID=<?php echo $f['resID']; ?>"><?php echo $f['resID']; ?> <i class="fa fa-pencil-square-o" aria-hidden="true"></td>
 											<td><?php echo $f['resNom']; ?> <?php echo $f['resApe']; ?></td>
 											<td><?php echo $f['resMail']; ?></td>
 											<td class="text-right"><?php echo $f['resFono']; ?></td>
-											<td><?php echo $f['resAuto']; ?></td>
+											<td><?php echo get_categoria(get_cat_auto($f['resAuto'])); ?></td>
+											<td><?php echo get_auto($f['resAuto']); ?></td>
+											<td><?php echo get_pat_auto($f['resAuto']); ?></td>
 											<td><?php echo $f['resFecIni']; ?> <?php echo $f['resHorIni']; ?></td>
 											<td><?php echo $f['resFecFin']; ?> <?php echo $f['resHorFin']; ?></td>
 											<td class="text-right"><?php echo $f['resDias']; ?></td>
 											<?php if($f['resDesDir']){ ?>
-											<td><?php echo $f['resDesDir']; ?> <?php echo $f['resDesNum']; ?>, <?php echo $f['resDesCom']; ?></td>
+											<td><?php echo $f['resDesDir']; ?> <?php echo $f['resDesNum']; ?>, <?php echo get_comuna($f['resDesCom']); ?></td>
 											<?php }else{ ?>
 											<td>Oficina Real Rent a Car</td>
 											<?php } ?>
-											<td><?php echo $f['resDevol']; ?></td>
+											<?php 
+											if($f['resDevol']==1 || !$f['resDevol']){
+											    $devolucion = "Oficina de Real Rent a Car";
+										    }elseif($f['resDevol']==2){
+											    $devolucion = "Misma dirección de entrega";
+										    }elseif($f['resDevol']==3){
+											    $devolucion = "Lugar a acordar telefónicamente";
+										    } ?>
+											<td><?php echo $devolucion; ?></td>
 											<td class="text-right">$<?php echo number_format($f['resValTot'],0,',','.'); ?></td>
-											<td><?php echo $f['resEst']; ?></td>
+											<?php if( $f['resEst']==0){ ?>
+											<td><span class="label label-info">Por Confirmar</span></td>
+											<?php }elseif( $f['resEst']==1){ ?>
+											<td><span class="label label-primary">Confirmado</span></td>
+											<?php }if( $f['resEst']==2){ ?>
+											<td><span class="label label-success">Entregado</span></td>
+											<?php }if( $f['resEst']==3){ ?>
+											<td><span class="label label-danger">No Show</span></td>
+											<?php }if( $f['resEst']==4){ ?>
+											<td><span class="label label-default">Recepcionado</span></td>
+											<?php }  ?>
 											<td><?php echo $f['resTS']; ?></td>
 										</tr>
-					  
-										
 										
 		    <? 		
 			    

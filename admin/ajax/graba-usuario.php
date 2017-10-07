@@ -13,25 +13,21 @@ if ($ajax) {
 	if(in_array( $domain['host'], $allowedDomains)) {
 		
 			
-		$paisID 	= $_POST['paisID'];
 		$usuTipo 	= $_POST['usuTipo'];
 		$usuNom 	= $_POST['usuNom'];
 		$usuApe 	= $_POST['usuApe'];
-		$usuProv 	= $_POST['usuProv'];
 		$usuEst 	= $_POST['usuEst'];
-		$formato 	= $_POST['formato'];
-			$usuMail = $_POST['usuMail'];
+		$usuMail 	= $_POST['usuMail'];
 		
 		if(isset($_POST['usuID'])){
 			$usuID = $_POST['usuID'];
 		
 			$data = Array (
-				"paisID" 	=> $paisID,
+				"paisID" 	=> 1,
 				"usuTipo" 	=> $usuTipo,
 				"usuNom" 	=> $usuNom,
 				"usuApe" 	=> $usuApe,
 				"usuMail" 	=> $usuMail,
-				"usuProv" 	=> $usuProv,
 				"usuEst" 	=> $usuEst
 			);		
 			$db->where("usuID", $usuID);
@@ -41,32 +37,18 @@ if ($ajax) {
 			$usuMail = $_POST['usuMail'];
 			$usuPass = $_POST['usuPass'];
 			$data = Array (
-				"paisID" 	=> $paisID,
+				"paisID" 	=> 1,
 				"usuTipo" 	=> $usuTipo,
 				"usuNom" 	=> $usuNom,
 				"usuApe" 	=> $usuApe,
 				"usuMail" 	=> $usuMail,
-				"usuProv" 	=> $usuProv,
 				"usuPass" 	=> md5($usuPass),
 				"usuEst" 	=> $usuEst
 			);	
 			$usuID = $db->insert ('usuario', $data);	
 			$respuesta = '1';	
 		}
-
-		$db->where('usuID', $usuID);
-		$db->delete('usuario_x_formato');
 		
-		for($i=0; $i<sizeof($formato);$i++){
-			$data = Array (
-				"paisID" 	=> $paisID,
-				"usuID" 	=> $usuID, 
-				"formID" 	=> $formato[$i]
-			);	
-			$id = $db->insert ('usuario_x_formato', $data);	
-		}
-
-
 		
 		echo $respuesta;
 	}else{

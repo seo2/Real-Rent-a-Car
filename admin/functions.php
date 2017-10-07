@@ -179,6 +179,77 @@
 		return $ok;
 	
 	}
+	function get_auto($ID){
+		$db = MysqliDb::getInstance();
+		$tema = $db->rawQuery('select * from autos_flota where autoID = '.$ID);
+		if($tema){
+			foreach ($tema as $t) {
+				$eveNombre  = $t["autoDesc"];
+			}
+		}else{
+			$eveNombre = 'Error';
+		}
+
+		return $eveNombre;
+		
+	}
+	function get_cat_auto($ID){
+		$db = MysqliDb::getInstance();
+		$tema = $db->rawQuery('select * from autos_flota where autoID = '.$ID);
+		if($tema){
+			foreach ($tema as $t) {
+				$eveNombre  = $t["catID"];
+			}
+		}else{
+			$eveNombre = 'Error';
+		}
+
+		return $eveNombre;
+		
+	}
+	function get_pat_auto($ID){
+		$db = MysqliDb::getInstance();
+		$tema = $db->rawQuery('select * from autos_flota where autoID = '.$ID);
+		if($tema){
+			foreach ($tema as $t) {
+				$eveNombre  = $t["autoPatente"];
+			}
+		}else{
+			$eveNombre = 'Error';
+		}
+
+		return $eveNombre;
+		
+	}
+	function get_categoria($ID){
+		$db = MysqliDb::getInstance();
+		$tema = $db->rawQuery('select * from autos_categorias where catID = '.$ID);
+		if($tema){
+			foreach ($tema as $t) {
+				$eveNombre  = $t["catDesc"];
+			}
+		}else{
+			$eveNombre = 'Error';
+		}
+
+		return $eveNombre;
+		
+	}
+	function get_categoria_precio($ID){
+		$db = MysqliDb::getInstance();
+		$tema = $db->rawQuery('select * from autos_categorias where catID = '.$ID);
+		if($tema){
+			foreach ($tema as $t) {
+				$eveNombre  = $t["catPrec"];
+			}
+		}else{
+			$eveNombre = 'Error';
+		}
+
+		return $eveNombre;
+		
+	}
+
 
 	function get_segmento_cat($catID){
 		$db = MysqliDb::getInstance();
@@ -210,36 +281,6 @@
 		
 	}
 	
-
-	function get_pieza_entrega($ID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from piezas where pieID = '.$ID);
-		if($tema){
-			foreach ($tema as $t) {
-				$pieEnt  = $t["pieEnt"];
-			}
-		}else{
-			$pieEnt = 0;
-		}
-
-		return $pieEnt;
-	}
-
-
-	function get_pieza_opc_desc($pieID,$ID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from pieza_opciones where pieID = '.$pieID.' and opcID = '.$ID);
-		if($tema){
-			foreach ($tema as $t) {
-				$eveNombre  = $t["opcDesc"];
-			}
-		}else{
-			$eveNombre = 'Error';
-		}
-
-		return $eveNombre;
-	}
-	
 	
 	function get_regiones(){
 		$db = MysqliDb::getInstance();
@@ -250,78 +291,9 @@
 
 
 
-	function get_items_tienda($tiendaID,$eveID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from items where eveID = '.$eveID.' and tiendaID = '.$tiendaID);
-		$i = 0;
-		if($tema){
-			foreach ($tema as $t) {
-				$i++;
-			}
-		}else{
-			$i = 0;
-		}
 
-		return $i;
-	}
-
-
-	function get_fono_tienda($tiendaID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from tiendas where tieID = '.$tiendaID);
-		if($tema){
-			foreach ($tema as $t) {
-				$tieFono = $t['tieFono'];
-			}
-		}else{
-			$tieFonoi = '';
-		}
-
-		return $tieFono;
-	}
-
-
-	function get_mail_tienda($tiendaID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from tiendas where tieID = '.$tiendaID);
-		if($tema){
-			foreach ($tema as $t) {
-				$tieFono = $t['tieMail'];
-			}
-		}else{
-			$tieFonoi = '';
-		}
-
-		return $tieFono;
-	}
 	
-	function get_categoria($ID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from autos_categorias where catID = '.$ID);
-		if($tema){
-			foreach ($tema as $t) {
-				$eveNombre  = $t["catDesc"];
-			}
-		}else{
-			$eveNombre = 'Error';
-		}
 
-		return $eveNombre;
-		
-	}
-
-
-	function get_formato_tienda($tiendaID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from tiendas where tieID = '.$tiendaID);
-		if($tema){
-			foreach ($tema as $t) {
-				$tieForm = $t['tieForm'];
-			}
-		}
-
-		return $tieForm;
-	}
 
 
 	function formatoxcatalogo($camID,$catID,$formID){
@@ -809,245 +781,12 @@ function resample($jpgFile, $thumbFile, $width, $orientation) {
 }
 
 
-	/*
-		
-		ESTADOS:
-		
-		Solicitado: 			0 // creado por VM
-		Para revisión: 			1 // A la espera de MM
-		Objetado:				2 // Rechazado por MM
-		Aprobado:				3 // Aprobado por MM --> traspasado a Proveedor --> para cotizar
-		
-		Cotizado:				4 // Recibido por Proveedor, ingresó precio y envió a MM
-		Cotizacion Aprobada: 	5 // Cotización aprobada por MM --> Proveedor debe ingresar precio
-		Ongoing:   				6 // Proveedor compromete fecha de entrega
-		
-		Entregado:				7 // Entregado por Proveedor
-		Finalizado:				8 // Recepcionado por VM
-		
-	*/	
-
-function get_desc_estado($est){
-	if($est == 0){
-		$estado = 'Solicitado';
-	}elseif($est == 1){
-		$estado = 'Para revisión';
-	}elseif($est == 2){
-		$estado = 'Rechazado';
-	}elseif($est == 3){
-		$estado = 'Aprobado';
-	}elseif($est == 4){
-		$estado = 'Cotizado';
-	}elseif($est == 5){
-		$estado = 'Cotizacion Aprobada';
-	}elseif($est == 6){
-		$estado = 'Ongoing';
-	}elseif($est == 7){
-		$estado = 'Entregado';
-	}elseif($est == 8){
-		$estado = 'Finalizado';
-	}
-	return $estado;
-}
-
-function get_desc_estado_br($est){
-	if($est == 0){
-		$estado = 'Requerido';
-	}elseif($est == 1){
-		$estado = 'Para revisão';
-	}elseif($est == 2){
-		$estado = 'Rejeitado';
-	}elseif($est == 3){
-		$estado = 'Aprovado';
-	}elseif($est == 4){
-		$estado = 'Cotado';
-	}elseif($est == 5){
-		$estado = 'Cotações Aprovada';
-	}elseif($est == 6){
-		$estado = 'Em Andamento';
-	}elseif($est == 7){
-		$estado = 'Entregado';
-	}elseif($est == 8){
-		$estado = 'Finalizado';
-	}
-	return $estado;
-}
-
-function get_class_estado($est){
-	if($est == 0){
-		$estado = 'solicitado';
-	}elseif($est == 1){
-		$estado = 'revision';
-	}elseif($est == 2){
-		$estado = 'objetado';
-	}elseif($est == 3){
-		$estado = 'aprobado';
-	}elseif($est == 4){
-		$estado = 'recibido';
-	}elseif($est == 5){
-		$estado = 'recibido';
-	}elseif($est == 6){
-		$estado = 'recibido';
-	}elseif($est == 7){
-		$estado = 'entregado';
-	}elseif($est == 8){
-		$estado = 'finalizado';
-	}
-	return $estado;
-}
-
-function get_tipo_formato($est){
-	if($est == 1){
-		$estado = 'Performance';
-	}elseif($est == 2){
-		$estado = 'Originals';
-	}elseif($est == 3){
-		$estado = 'Outlet';
-	}elseif($est == 4){
-		$estado = 'Kids';
-	}
-	return $estado;
-}
-
-function get_carpeta_ISC($formID){
-	if($formID == 1){
-		$folder = 'ISC/CORE/';
-	}elseif($formID == 2){
-		$folder = 'ISC/HC/';
-	}elseif($formID == 3){
-		$folder = 'ISC/OCS/';
-	}elseif($formID == 4){
-		$folder = 'ISC/FO/';
-	}elseif($formID == 5){
-		$folder = 'ISC/NBHD/';
-	}elseif($formID == 6){
-		$folder = 'ISC/KIDS/';
-	}elseif($formID == 7){
-		$folder = 'ISC/HCE/';
-	}elseif($formID == 9){
-		$folder = 'ISC/CORE/';
-	}
-	return $folder;
-}
-
-function get_carpeta_ISC_v2($formID){
-	if($formID == 1){
-		$folder = 'ISC2/CORE_SPC/';
-	}elseif($formID == 2){
-		$folder = 'ISC2/HC10/';
-	}elseif($formID == 3){
-		$folder = 'ISC2/ATELIER_STUDIO/';
-	}elseif($formID == 4){
-		$folder = 'ISC2/HC_FO/';
-	}elseif($formID == 5){
-		$folder = 'ISC2/NBHD/';
-	}elseif($formID == 6){
-		$folder = 'ISC2/CORE_YA/';
-	}elseif($formID == 7){
-		$folder = 'ISC2/HC31/';
-	}elseif($formID == 9){
-		$folder = 'ISC2/CORE_SPC/';
-	}elseif($formID == 10){
-		$folder = 'ISC2/NBHD_FDD/';
-	}elseif($formID == 11){
-		$folder = 'ISC2/HC31_YA/';
-	}elseif($formID == 12){
-		$folder = 'ISC2/CORE_FO/';
-	}
-	return $folder;
-}
 
 	
-function get_checklist_nom($clID){
-	$db = MysqliDb::getInstance();
-	$tema = $db->rawQuery('select * from checklist where clID = '.$clID);
-	if($tema){
-		foreach ($tema as $t) {
-			$eveNombre  = $t["clNom"];
-		}
-	}else{
-		$eveNombre = 'Error';
-	}
-
-	return $eveNombre;
-}
-
-function get_checklist_formato($clID){
-	$db = MysqliDb::getInstance();
-	$tema = $db->rawQuery('select * from checklist where clID = '.$clID);
-	if($tema){
-		foreach ($tema as $t) {
-			$eveNombre  = $t["clFor"];
-		}
-	}else{
-		$eveNombre = 'Error';
-	}
-
-	return $eveNombre;
-}
-
-	
-function get_zona($clID){
-	$db = MysqliDb::getInstance();
-	$tema = $db->rawQuery('select * from checklist_zona where clzID = '.$clID);
-	if($tema){
-		foreach ($tema as $t) {
-			$eveNombre  = $t["clzNom"];
-		}
-	}else{
-		$eveNombre = 'Error';
-	}
-
-	return $eveNombre;
-	
-}
-
-	function get_total_checklists_pendientes($tieID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select count(*) as total from checklist_x_tienda where clxtTie = '.$tieID.' and clxtEst = 0');
-		if($tema){
-			foreach ($tema as $t) {
-				$total = $t['total'];
-			}
-		}else{
-			$total = 0;
-		}
-		return $total;
-	}
-
-	function get_total_checklists_pendientes_x_usuario($tieID,$usuID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select count(*) as total from checklist_x_tienda where clxtTie = '.$tieID.' and clxtMM = '.$usuID.' and clxtEst = 0');
-		if($tema){
-			foreach ($tema as $t) {
-				$total = $t['total'];
-			}
-		}else{
-			$total = 0;
-		}
-		return $total;
-	}
-
-	
-	function ask_pais_campana($camID,$paisID){
+	function ask_opcion_reserva($resID,$opcID){
 		$ok = 0;
 		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from campana_x_pais where camID = '.$camID.' and paisID = '.$paisID);
-		if($tema){
-			foreach ($tema as $t) {
-				$ok = 1;
-			}
-		}
-
-		return $ok;
-		
-	}	
-
-	
-	function ask_pais_campana_v2($camID,$paisID){
-		$ok = 0;
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from campana_x_pais_v2 where camID = '.$camID.' and paisID = '.$paisID);
+		$tema = $db->rawQuery('select * from reservas_opcionales where resID = '.$resID.' and opcID = '.$opcID);
 		if($tema){
 			foreach ($tema as $t) {
 				$ok = 1;
@@ -1057,6 +796,8 @@ function get_zona($clID){
 		return $ok;
 		
 	}
+	
+	
 	function get_pais_nom($clID){
 		$db = MysqliDb::getInstance();
 		$tema = $db->rawQuery('select * from paises where paisID = '.$clID);
@@ -1156,141 +897,6 @@ function get_zona($clID){
 		return $nombre;
 	}
 	
-	function get_instore_nom_x_pais($paisID, $formID, $insID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from instores where formID = '.$formID.' and insID = '.$insID);
-		if($tema){
-			foreach ($tema as $t) {
-				if($paisID==1){
-					$nombre  = $t["insNomChi"];
-				}elseif($paisID==2){
-					$nombre  = $t["insNomCol"];
-				}elseif($paisID==3){
-					$nombre  = $t["insNomArg"];
-				}elseif($paisID==4){
-					$nombre  = $t["insNomMex"];
-				}elseif($paisID==5){
-					$nombre  = $t["insNomPer"];
-				}elseif($paisID==6){
-					$nombre  = $t["insNomPan"];
-				}elseif($paisID==7){
-					$nombre  = $t["insNomBra"];
-				}
-			}
-		}else{
-			$nombre = 'Error';
-		}
-	
-		return $nombre;
-	}
-	
-	function get_instore_nom_x_pais_v2($paisID, $formID, $insID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from instores_v2 where formID = '.$formID.' and insID = '.$insID);
-		if($tema){
-			foreach ($tema as $t) {
-				if($paisID==1){
-					$nombre  = $t["insNomChi"];
-				}elseif($paisID==2){
-					$nombre  = $t["insNomCol"];
-				}elseif($paisID==3){
-					$nombre  = $t["insNomArg"];
-				}elseif($paisID==4){
-					$nombre  = $t["insNomMex"];
-				}elseif($paisID==5){
-					$nombre  = $t["insNomPer"];
-				}elseif($paisID==6){
-					$nombre  = $t["insNomPan"];
-				}elseif($paisID==7){
-					$nombre  = $t["insNomBra"];
-				}
-			}
-		}else{
-			$nombre = 'Error';
-		}
-	
-		return $nombre;
-	}
-
-	function get_instore_opc_desc($formID, $insID, $opcID){
-		$db 	= MysqliDb::getInstance();
-		$tema 	= $db->rawQuery('select * from instores_opciones where formID = '.$formID.' and insID = '.$insID.' and insOpID = '.$opcID);
-		if($tema){
-			foreach ($tema as $t) {
-				$insOpNom  = $t["insOpNom"];
-			}
-		}else{
-			$insOpNom = 'Error';
-		}
-
-		return $insOpNom;
-	}
-
-	function get_instore_opc_desc_v2($formID, $insID, $opcID){
-		$db 	= MysqliDb::getInstance();
-		$tema 	= $db->rawQuery('select * from instores_opciones_v2 where formID = '.$formID.' and insID = '.$insID.' and insOpID = '.$opcID);
-		if($tema){
-			foreach ($tema as $t) {
-				$insOpNom  = $t["insOpNom"];
-			}
-		}else{
-			$insOpNom = 'Error';
-		}
-
-		return $insOpNom;
-	}
-
-	
-	function get_formato_pieza($formID,$ptdGra){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from instores where formID = '.$formID.' and insID = '.$ptdGra);
-		if($tema){
-			foreach ($tema as $t) {
-				$insFormID = $t['insFormID'];
-			}
-		}
-
-		return $insFormID;
-	}
-
-	
-	function get_formato_pieza_v2($formID,$ptdGra){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from instores_v2 where formID = '.$formID.' and insID = '.$ptdGra);
-		if($tema){
-			foreach ($tema as $t) {
-				$insFormID = $t['insFormID'];
-			}
-		}
-
-		return $insFormID;
-	}
-	
-	function get_responsable_formato($paisID,$formID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from usuario_x_formato where paisID = '.$paisID.' and formID = '.$formID);
-		if($tema){
-			foreach ($tema as $t) {
-				$usuID = $t['usuID'];
-			}
-		}
-
-		return $usuID;
-	}
-	
-	
-	
-	function get_responsable_tienda($paisID,$tieID){
-		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from tiendas where paisID = '.$paisID.' and tieID = '.$tieID);
-		if($tema){
-			foreach ($tema as $t) {
-				$tieFono = $t['tieFono'];
-			}
-		}
-
-		return $tieFono;
-	}
 	
 	function get_tienda_x_formato_x_pais($formID, $paisID){
 		$db = MysqliDb::getInstance();
@@ -1327,12 +933,12 @@ function get_zona($clID){
 
 	
 
-	function get_rate_exchange($paisID,$ano){
+	function get_precio_opcional($opcID){
 		$db = MysqliDb::getInstance();
-		$tema = $db->rawQuery('select * from rate_exchange where rexPais = '.$paisID.' and rexAno = '.$ano.' order by rexID DESC limit 1');
+		$tema = $db->rawQuery('select * from opcionales where opcID = '.$opcID);
 		if($tema){
 			foreach ($tema as $t) {
-				$rexVal = $t['rexVal'];
+				$rexVal = $t['opcPrec'];
 			}
 		}
 

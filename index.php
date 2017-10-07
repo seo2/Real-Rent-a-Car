@@ -112,7 +112,11 @@
 							</div><!-- /.row -->
 							<div class="row">
 								<div class="col s12">
-									<button class="btn left z-depth-0" type="submit" name="action">Hacer Reserva</button>
+									<?php if($_GET['paso']){ ?>
+									<button class="btn left z-depth-0" type="submit" name="action" data-paso="<?php echo $_GET['paso']; ?>" id="btnForm">Continuar</button>
+									<?php }else{ ?>
+									<button class="btn left z-depth-0" type="submit" name="action" data-paso="1" id="btnForm">Hacer Reserva</button>
+									<?php } ?>
 								</div><!-- .col -->
 							</div><!-- /.row -->
 								<div class="progress hide" id="progreso">
@@ -135,7 +139,7 @@
 		    </div>
 		  </div><!-- /.row -->
 			<div class="row">
-	      <div class="col s12 m4">
+	      <div class="col s12 m6">
 	        <div class="features">
 	          <i class="fa fa-car features_icono" aria-hidden="true"></i>
 	        	<div class="features_content">
@@ -144,6 +148,7 @@
 	        	</div>
 	        </div><!-- /features -->
 	      </div><!-- /.col -->
+<!--
 	      <div class="col s12 m4">
 	        <div class="features">
 		        <i class="fa fa-credit-card features_icono" aria-hidden="true"></i>
@@ -151,9 +156,10 @@
 	          	<h5>3 cuotas sin intereses</h5>
 	          	<p>Aceptamos todas las tarjetas bancarias.</p>
 	        	</div>
-	        </div><!-- /features -->
-	      </div><!-- /.col -->
-	      <div class="col s12 m4">
+	        </div>
+	      </div>
+-->
+	      <div class="col s12 m6">
 	        <div class="features">
 		        <i class="fa fa-map-marker features_icono" aria-hidden="true"></i>
 	        	<div class="features_content">
@@ -211,6 +217,16 @@
 			$('#hasta_el').val('');
 			$('#desde_elh').val('');
 			$('#hasta_elh').val('');
+
+			$('#test5').prop('checked', false);
+			$('#entrega').hide();	
+			$('#direccion').val('');
+			$('#numero').val('');
+			$('#comuna').val(0);
+			$('#comuna').material_select();
+			$('#devolucion').val(1);
+			$('#devolucion').material_select();			
+
 		});
 	</script>
 <?php } ?>

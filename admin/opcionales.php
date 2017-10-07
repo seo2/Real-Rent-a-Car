@@ -57,11 +57,11 @@ if($_SESSION['todos']['Logged']){
 						</a>
 					</div>
 					<div class="col-xs-7 col-sm-8 postema nopadl nopadr">
-						<a href="formulario-opcionales.php?ocpID=<?= $r['ocpID']; ?>"><?= $r['opcDesc']; ?></a><br>
+						<a href="formulario-opcionales.php?ocpID=<?= $r['opcID']; ?>"><?= $r['opcDesc']; ?></a><br>
 						<span><i class="fa fa-usd" aria-hidden="true"></i> <?= number_format($r['opcPrec'],0,',','.'); ?></span>
 					</div>
 					<div class="col-xs-3 text-right posvotos">
-						<a href="formulario-opcionales.php?ocpID=<?= $r['ocpID']; ?>" class="btn btn-default"><i class="fa fa-list"></i> <span class="hidden-xs">Editar</span></a> 
+						<a href="formulario-opcionales.php?ocpID=<?= $r['opcID']; ?>" class="btn btn-default"><i class="fa fa-list"></i> <span class="hidden-xs">Editar</span></a> 
 					</div>
 				</div>
 

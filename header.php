@@ -40,34 +40,34 @@
 <!-- 	        <li><a href="faqs.php" target="_self" class="">FAQS</a></li> -->
 	        <li><a href="somos.php" target="_self" class="">SOMOS</a></li>
 	        <li><a href="contacto.php" target="_self" class="">CONTACTO</a></li>
+	      	<li><a href="https://www.facebook.com/realrentacarchile/?fref=ts" target="_blank"><i class="fa fa-facebook fa-lg"></i></a></li>
 <!--
-	      	<li><a href="#" target="_blank"><i class="fa fa-facebook fa-lg"></i></a></li>
 			<li><a href="#" target="_blank"><i class="fa fa-twitter fa-lg"></i></a></li>
 			<li><a href="#" target="_blank"><i class="fa fa-youtube fa-lg"></i></a></li>
 			<li><a href="#" target="_blank"><i class="fa fa-instagram fa-lg"></i></a></li>
 -->
 	      </ul>
 	
-	      <ul id="nav-mobile" class="side-nav">
-		      <li class="brand-logo-mobile"><a href="index.php" target="_self"><img src="assets/img/real_rent_a_car.svg" width="150"/></a></li>
-	        <li><a href="index.php" target="_self" class="">Reservar</a></li>
-	        <li><a href="vehiculos.php" target="_self" class="">Vehículos</a></li>
-<!-- 	        <li><a href="faqs.php" target="_self" class="">FAQS</a></li> -->
-	        <li><a href="somos.php" target="_self" class="">SOMOS</a></li>
-	        <li><a href="contacto.php" target="_self" class="">CONTACTO</a></li>
-<!--
-	        <li class="redes_sociales">
-		        <a href="#" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
-				<a href="#" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
-				<a href="#" target="_blank"><i class="fa fa-youtube fa-lg"></i></a>
-				<a href="#" target="_blank"><i class="fa fa-instagram fa-lg"></i></a>
-	        </li>
--->
-	      </ul>
 	      <a href="#" data-activates="nav-mobile" class="button-collapse right">
 		      <i class="material-icons">menu</i>
 		    </a>
 	    </div>
 	  </nav>
 	  </div><!-- /navbar-fixed -->
+	      <ul id="nav-mobile" class="side-nav">
+		      <li class="brand-logo-mobile"><a href="index.php" target="_self"><img src="assets/img/real_rent_a_car.svg" width="150"/></a></li>
+	        <li><a href="index.php" target="_self" class="">RESERVAR</a></li>
+	        <li><a href="vehiculos.php" target="_self" class="">VEHÍCULOS</a></li>
+<!-- 	        <li><a href="faqs.php" target="_self" class="">FAQS</a></li> -->
+	        <li><a href="somos.php" target="_self" class="">SOMOS</a></li>
+	        <li><a href="contacto.php" target="_self" class="">CONTACTO</a></li>
+	        <li class="redes_sociales">
+		        <a href="https://www.facebook.com/realrentacarchile/?fref=ts" target="_blank"><i class="fa fa-facebook fa-lg" style="float:none;"></i></a>
+<!--
+				<a href="#" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
+				<a href="#" target="_blank"><i class="fa fa-youtube fa-lg"></i></a>
+				<a href="#" target="_blank"><i class="fa fa-instagram fa-lg"></i></a>
+-->
+	        </li>
+	      </ul>
 	</header>

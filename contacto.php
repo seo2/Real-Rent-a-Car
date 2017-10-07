@@ -20,24 +20,24 @@
 				</div><!-- /.row -->
 				
 				<div class="row">
-					<form class="col s12 l8 offset-l2">
+					<form class="col s12 l8 offset-l2" action="ajax/contacto.php" method="post" id="formContacto">
 			      <div class="row">
 			        <div class="input-field col m6 s12">
-			          <input id="last_name" type="text" class="validate">
+			          <input id="nombre" type="text" class="validate" name="nombre" required>
 			          <label for="first_name">Nombre</label>
 			        </div>
 			        <div class="input-field col m6 s12">
-			          <input id="last_name" type="text" class="validate">
+			          <input id="apellido" type="text" class="validate" name="apellido" required>
 			          <label for="last_name">Apellido</label>
 			        </div>
 			      </div><!-- /.row -->
 			      <div class="row">
 			        <div class="input-field col m6 s12">
-			          <input id="email" type="text" class="validate">
+			          <input id="mail" type="text" class="validate" name="email" required>
 			          <label for="email">Email</label>
 			        </div>
 			        <div class="input-field col m6 s12">
-			          <input id="telefono" type="text" class="validate">
+			          <input id="fono" type="text" class="validate" name="telefono" required>
 			          <label for="telefono">Teléfono</label>
 			        </div>
 			      </div><!-- /.row -->
@@ -45,7 +45,7 @@
 			        <div class="col s12">
 			          <div class="row">
 					        <div class="input-field col s12">
-					          <textarea id="textarea1" class="materialize-textarea"></textarea>
+					          <textarea id="mensaje" class="materialize-textarea" name="mensaje" required ></textarea>
 					          <label for="textarea1">Mensaje</label>
 					        </div>
 					      </div>
@@ -53,10 +53,13 @@
 			      </div><!-- /.row -->
 			      <div class="row">
 			        <div class="col s12">
-			          <button class="btn" type="submit" name="action">Enviar</button>
+			          <button class="btn" type="submit" name="action" id="btnEnviar">Enviar</button>
 			        </div>
 			      </div><!-- /.row -->
 			    </form>
+		    	<div class="progress hide" id="progreso">
+			    	<div class="indeterminate"></div>
+				</div>
 				</div><!-- /.row -->
 			</div><!-- /.section -->			
 		</div><!-- /.container -->

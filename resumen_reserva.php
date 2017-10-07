@@ -59,8 +59,37 @@
 			          <tr>
 			            <td>Arriendo Auto</td>
 			            <td><?php echo $rautoDesc; ?><br><span class="los_dias"></span> / $<?php echo number_format($catPrec,0,',','.'); ?> por día</td>
-			            <td>$<span class="dias2" data-valor="<?php echo $catPrec; ?>"></span></td>
+			            <td class="right-align">$<span class="dias2"  data-dias="0" data-valor="<?php echo $catPrec; ?>"></span></td>
 			          </tr>
+		<?php  
+			if($_GET['comID']){
+				$comID = $_GET['comID'];
+				$sql  = "select * from comuna where comuna_id = $comID";
+			  	$resultado = $db->rawQuery($sql);
+				if($resultado){
+					foreach ($resultado as $r) {
+						$tramoPrec = get_tramo_valor($r['comuna_tramo']);
+						$comuna_nombre = $r['comuna_nombre'];
+	    ?>			          
+			          <tr class="entrega">
+			            <td>Entrega a Domicilio</td>
+			            <td>Comuna <span class="comuna"><?php echo $comuna_nombre; ?></span></td>
+			            <td class="right-align">$<span class="dias2" data-dias="1" data-valor="<?php echo $tramoPrec; ?>"></span></td>
+			          </tr>
+		<?php  			
+						if($_GET['dev']==2){ ?>
+			          <tr class="entrega">
+			            <td>Devolución</td>
+			            <td>Comuna <span class="comuna"><?php echo $comuna_nombre; ?></span></td>
+			            <td class="right-align">$<span class="dias2" data-dias="1" data-valor="<?php echo $tramoPrec; ?>"></span></td>
+			          </tr>
+		<?php	
+						}
+					
+					} 
+			    } 
+		    }
+		?>
 		<?  if($_GET['opcionales']){
 				$opcionales = $_GET['opcionales'];
 				$sql  = "select * from opcionales where opcID in ($opcionales) order by opcDesc";
@@ -72,7 +101,7 @@
 			          <tr id="item_adicional">
 			            <td><?php echo $r['opcDesc']; ?></td>
 			            <td><span class="los_dias"></span> / $<?php echo number_format($opcPrec,0,',','.'); ?> por día</td>
-			            <td>$<span class="dias2" data-valor="<?php echo $opcPrec; ?>"></span></td>
+			            <td class="right-align">$<span class="dias2" data-dias="0" data-valor="<?php echo $opcPrec; ?>"></span></td>
 			          </tr>
 		<?  		} 
 			    } 
@@ -81,7 +110,7 @@
 			          <tr>
 			            <td>TOTAL</td>
 			            <td></td>
-			            <td>$<span class="supertotal"></span></td>
+			            <td class="right-align"><strong>$<span class="supertotal"></span></strong></td>
 			          </tr>
 			        </tbody>
 			      </table>
@@ -199,22 +228,22 @@
 						<br>
 						
 						<div class="dato_reserva hide" id="direccion_entrega">
-							<p><span>Donde entregar:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
+							<p><span>Donde entregar:</span><a href="index.php?editar=1&paso=4" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
 							<p id="direccion"></p>
 						</div><!-- /.datos_reserva -->
 						
 						<div class="dato_reserva hide" id="lugar_devolucion">
-							<p><span>Devolución:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
+							<p><span>Devolución:</span><a href="index.php?editar=1&paso=4" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
 							<p id="ladevolucion"></p>
 						</div><!-- /.datos_reserva -->
 						
 						<div class="dato_reserva">
-							<p><span>Fecha entrega:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
+							<p><span>Fecha entrega:</span><a href="index.php?editar=1&paso=4" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
 							<p id="fecha_desde"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span></p>
 						</div><!-- /.datos_reserva -->
 						
 						<div class="dato_reserva">
-							<p><span>Fecha devolución:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
+							<p><span>Fecha devolución:</span><a href="index.php?editar=1&paso=4" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
 							<p id="fecha_hasta"></p>
 						</div><!-- /.datos_reserva -->
 						

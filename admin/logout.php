@@ -12,12 +12,6 @@ unset($_COOKIE['id']);
 setcookie('id', null, -1, '/');
 */
 
-require_once("_lib/config.php");
-require_once("_lib/MysqliDb.php");
-$db = new MysqliDb (DBHOST, DBUSER, DBPASS, DBNAME);
-
-$db->where('usuID',$_COOKIE['id']);
-$db->delete('usuToken');
 
 
 $cookie_name = 'id';

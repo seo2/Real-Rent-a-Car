@@ -115,22 +115,22 @@
 						<br>
 						
 						<div class="dato_reserva hide" id="direccion_entrega">
-							<p><span>Donde entregar:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
+							<p><span>Donde entregar:</span><a href="index.php?editar=1&paso=3" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
 							<p id="direccion"></p>
 						</div><!-- /.datos_reserva -->
 						
 						<div class="dato_reserva hide" id="lugar_devolucion">
-							<p><span>Devolución:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
+							<p><span>Devolución:</span><a href="index.php?editar=1&paso=3" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
 							<p id="ladevolucion"></p>
 						</div><!-- /.datos_reserva -->
 						
 						<div class="dato_reserva">
-							<p><span>Fecha entrega:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
+							<p><span>Fecha entrega:</span><a href="index.php?editar=1&paso=3" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
 							<p id="fecha_desde"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span></p>
 						</div><!-- /.datos_reserva -->
 						
 						<div class="dato_reserva">
-							<p><span>Fecha devolución:</span><a href="index.php?editar=1" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
+							<p><span>Fecha devolución:</span><a href="index.php?editar=1&paso=3" target="" class="btn_editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>editar</a></p>
 							<p id="fecha_hasta"></p>
 						</div><!-- /.datos_reserva -->
 						
